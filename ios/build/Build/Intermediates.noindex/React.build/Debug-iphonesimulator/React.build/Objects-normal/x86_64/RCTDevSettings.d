@@ -1,0 +1,23 @@
+dependencies: \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Modules/RCTDevSettings.mm \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Modules/RCTDevSettings.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JavaScriptCore.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Modules/RCTJSCSamplingProfiler.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/DevSupport/RCTPackagerClient.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/Inspector/RCTInspectorPackagerConnection.h
