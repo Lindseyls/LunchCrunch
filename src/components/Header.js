@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Text, View, StyleSheet } from 'react-native';
 
-import PropTypes from 'prop-types';
 
 const Header = (props) => {
 
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 });
 
 Header.propTypes = {
-  headerText: PropTypes.string
+  headerText: PropTypes.string.isRequired
 }
 
 export default Header;
