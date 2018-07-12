@@ -4,28 +4,26 @@ import { View } from 'react-native';
 
 import RestaurantDetail from './RestaurantDetail';
 
+const YELP_URL = 'http://localhost:3000/restaurants'
+
 class RestaurantList extends Component {
   state = { restaurants: [] };
 
-  UNSAFE_componentWillMount() {
-    axios.get('http://localhost:3000/restaurants')
-      // .then(response => this.setState({restaurants: response.data}));
-      .then((response) => {
-          console.log(response.data[0].name);
-          this.setState({ restaurants: response.data })
-      });
+  componentDidMount() {
+    axios.get(YELP_URL)
+      .then(response => this.setState({restaurants: response.data}));
+      // .then((response) => {
+      //     this.setState({ restaurants: response.data })
+      // });
   }
 
   renderRestaurants() {
-    console.log(this.state.restaurants[0])
-    this.state.restaurants.map(restaurant =>
-      <RestaurantDetail key={restaurant.yelp_id} name={restaurant.name} />
+    return this.state.restaurants.map(restaurant =>
+      <RestaurantDetail key={restaurant.yelp_id} restaurantData={restaurant} />
     );
   }
 
   render () {
-    // console.log(this.state.restaurants[0])
-
     return (
       <View>
         {this.renderRestaurants()}

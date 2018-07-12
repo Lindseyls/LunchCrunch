@@ -1,13 +1,33 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
-const RestaurantDetail = (props) => {
+import Card from './Card';
+import CardSection from './CardSection';
+
+const RestaurantDetail = ({ restaurantData }) => {
+
+  const { name, location, image_url } = restaurantData;
+
   return (
-    <View>
-      console.log(props.name)
-      <Text>{props.name}</Text>
-    </View>
+    <Card>
+      <CardSection>
+        <View>
+          <Image source={{ uri: image_url }} />
+        </View>
+        <View style={styles.contentStyle}>
+          <Text>{name}</Text>
+          <Text>{location[1]}</Text>
+        </View>
+      </CardSection>
+    </Card>
   );
 };
+
+const styles = StyleSheet.create({
+  contentStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  }
+});
 
 export default RestaurantDetail;
