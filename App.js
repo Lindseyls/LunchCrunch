@@ -1,37 +1,14 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 
-class App extends Component {
-  state = {
-    restaurantName: ''
-  };
+import Header from './src/components/Header';
 
-  placeNameChangedHandler = (value) => {
-    this.setState({
-      restaurantName: value
-    });
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <TextInput
-          style={{width: 300, borderColor: "black", borderWidth: 1}}
-          value = {this.state.restaurantName}
-          onChangeText={this.placeNameChangedHandler}
-        />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = () => {
+  return (
+    <View>
+      <Header headerText={'Lunch Crunch! My first official App!'}/>
+    </View>
+  );
+};
 
 export default App;
