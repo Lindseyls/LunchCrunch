@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+
+import RestaurantDetail from './RestaurantDetail';
 
 class RestaurantList extends Component {
+  state = { restaurants: [] };
 
   UNSAFE_componentWillMount() {
     axios.get('http://localhost:3000/restaurants')
-    .then(response => console.log(response));
+      // .then(response => this.setState({restaurants: response.data}));
+      .then((response) => {
+          console.log(response.data[0].name);
+          this.setState({ restaurants: response.data })
+      });
+  }
 
+  renderRestaurants() {
+    console.log(this.state.restaurants[0])
+    this.state.restaurants.map(restaurant =>
+      <RestaurantDetail key={restaurant.yelp_id} name={restaurant.name} />
+    );
   }
 
   render () {
+    // console.log(this.state.restaurants[0])
 
     return (
-
       <View>
-        <Text>Restaurant List will go here!</Text>
+        {this.renderRestaurants()}
       </View>
     );
   }
