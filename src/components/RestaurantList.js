@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { View } from 'react-native';
+import { View, FlatList } from 'react-native';
 
 import RestaurantDetail from './RestaurantDetail';
 
@@ -17,17 +17,23 @@ class RestaurantList extends Component {
       // });
   }
 
-  renderRestaurants() {
-    return this.state.restaurants.map(restaurant =>
-      <RestaurantDetail key={restaurant.yelp_id} restaurantData={restaurant} />
-    );
-  }
+  // renderRestaurants(restaurant) {
+  //   return this.state.restaurants.map(restaurant =>
+  //     <RestaurantDetail key={restaurant.yelp_id} restaurantData={restaurant} />
+  //   );
+  // }
 
   render () {
     return (
-      <View>
-        {this.renderRestaurants()}
-      </View>
+      <FlatList
+        data={this.state.restaurants}
+        keyExtractor={restaurant => restaurant.yelp_id}
+        renderItem={({item}) =>
+          <View>
+            <RestaurantDetail restaurantData={item} />
+          </View>
+        }
+      />
     );
   }
 }

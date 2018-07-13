@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
 
 const Card = (props) => {
@@ -25,5 +26,9 @@ const styles = StyleSheet.create({
     marginTop: 10
   }
 });
+
+Card.propTypes = {
+  children: PropTypes.object.isRequired
+}
 
 export default Card;

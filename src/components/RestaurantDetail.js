@@ -8,7 +8,7 @@ import Stars from './Stars';
 import WaitTime from './WaitTime';
 
 const RestaurantDetail = ({ restaurantData }) => {
-  const { name, rating, image_url, popular_times } = restaurantData;
+  const { name, rating, review_count, image_url, popular_times } = restaurantData;
 
   return (
     <Card>
@@ -22,6 +22,7 @@ const RestaurantDetail = ({ restaurantData }) => {
         <View style={styles.contentStyle}>
           <Text style={styles.headerTextStyle}>{name}</Text>
           <Stars votes={rating} />
+          <Text style={styles.reviewCountStyle}>{review_count}</Text>
           <WaitTime times={popular_times} />
         </View>
       </CardSection>
@@ -46,6 +47,9 @@ const styles = StyleSheet.create({
   thumbnailStyle: {
     height: 50,
     width: 50
+  },
+  reviewCountStyle: {
+    position: 'relative'
   }
 });
 

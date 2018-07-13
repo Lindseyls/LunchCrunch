@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
 
 const CardSection = (props) => {
@@ -19,6 +20,10 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     position: 'relative'
   }
-
 });
+
+CardSection.propTypes = {
+  children: PropTypes.array.isRequired
+}
+
 export default CardSection;

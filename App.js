@@ -6,7 +6,7 @@ import RestaurantList from './src/components/RestaurantList';
 
 const App = () => {
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Header headerText={'🌯 Lunch Crunch! 🍱'}/>
       <RestaurantList />
     </View>
