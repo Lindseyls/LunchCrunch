@@ -5,9 +5,10 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Stars from './Stars';
+import WaitTime from './WaitTime';
 
 const RestaurantDetail = ({ restaurantData }) => {
-  const { name, rating, image_url } = restaurantData;
+  const { name, rating, image_url, popular_times } = restaurantData;
 
   return (
     <Card>
@@ -21,6 +22,7 @@ const RestaurantDetail = ({ restaurantData }) => {
         <View style={styles.contentStyle}>
           <Text style={styles.headerTextStyle}>{name}</Text>
           <Stars votes={rating} />
+          <WaitTime times={popular_times} />
         </View>
       </CardSection>
     </Card>
