@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-import Card from './Card';
-import CardSection from './CardSection';
-import Stars from './Stars';
-import WaitTime from './WaitTime';
+import Card from './common/Card';
+import CardSection from './common/CardSection';
+import Stars from './common/Stars';
+import WaitTime from './common/WaitTime';
 
 const RestaurantDetail = ({ restaurantData }) => {
   const { name, rating, review_count, image_url, popular_times } = restaurantData;
@@ -22,7 +22,7 @@ const RestaurantDetail = ({ restaurantData }) => {
         <View style={styles.contentStyle}>
           <Text style={styles.headerTextStyle}>{name}</Text>
           <Stars votes={rating} />
-          <Text style={styles.reviewCountStyle}>{review_count}</Text>
+          <Text style={styles.reviewCountStyle}>{review_count} reviews</Text>
           <WaitTime times={popular_times} />
         </View>
       </CardSection>
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   thumbnailStyle: {
-    height: 50,
-    width: 50
+    height: 55,
+    width: 55
   },
   reviewCountStyle: {
     position: 'relative'

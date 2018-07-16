@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Image } from 'react-native';
 
-import noStar from '../img/stars/small_0.png';
-import oneStar from '../img/stars/small_1.png';
-import oneHalfStar from '../img/stars/small_1_half.png';
-import twoStar from '../img/stars/small_2.png';
-import twoHalfStar from '../img/stars/small_2_half.png';
-import threeStar from '../img/stars/small_3.png';
-import threeHalfStar from '../img/stars/small_3_half.png';
-import fourStar from '../img/stars/small_4.png';
-import fourHalfStar from '../img/stars/small_4_half.png';
-import fiveStar from '../img/stars/small_5.png';
+import noStar from '../../img/stars/small_0.png';
+import oneStar from '../../img/stars/small_1.png';
+import oneHalfStar from '../../img/stars/small_1_half.png';
+import twoStar from '../../img/stars/small_2.png';
+import twoHalfStar from '../../img/stars/small_2_half.png';
+import threeStar from '../../img/stars/small_3.png';
+import threeHalfStar from '../../img/stars/small_3_half.png';
+import fourStar from '../../img/stars/small_4.png';
+import fourHalfStar from '../../img/stars/small_4_half.png';
+import fiveStar from '../../img/stars/small_5.png';
 
 class Stars extends Component {
   getStars = () => {

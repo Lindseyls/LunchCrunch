@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
   timeStyle: {
     fontWeight: '900',
     color: 'orange',
-    padding: 5
+    padding: 5,
+    fontSize: 15
   }
 });
 

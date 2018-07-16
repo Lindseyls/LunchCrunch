@@ -1,41 +1,80 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { View, FlatList } from 'react-native';
+import { connect } from 'react-redux';
+import { fetchRestaurantAPI } from '../actions';
+import { View, Text, FlatList } from 'react-native';
 
-import RestaurantDetail from './RestaurantDetail';
-
-const YELP_URL = 'http://localhost:3000/restaurants'
+// import RestaurantDetail from './RestaurantDetail';
 
 class RestaurantList extends Component {
-  state = { restaurants: [] };
+  // state = { restaurants: [] };
 
   componentDidMount() {
-    axios.get(YELP_URL)
-      .then(response => this.setState({restaurants: response.data}));
-      // .then((response) => {
-      //     this.setState({ restaurants: response.data })
-      // });
+    console.log('componentDidMount')
+    this.props.fetchRestaurantAPI()
   }
-
-  // renderRestaurants(restaurant) {
-  //   return this.state.restaurants.map(restaurant =>
-  //     <RestaurantDetail key={restaurant.yelp_id} restaurantData={restaurant} />
-  //   );
-  // }
+  // <FlatList
+  //   data={this.state.restaurants}
+  //   keyExtractor={restaurant => restaurant.yelp_id}
+  //   renderItem={({item}) =>
+  //     <View>
+  //       <RestaurantDetail restaurantData={item} />
+  //     </View>
+  //   }
+  // />
 
   render () {
-    return (
-      <FlatList
-        data={this.state.restaurants}
-        keyExtractor={restaurant => restaurant.yelp_id}
-        renderItem={({item}) =>
-          <View>
-            <RestaurantDetail restaurantData={item} />
-          </View>
-        }
-      />
-    );
+    console.log(this.props)
+    return (<Text>Hello</Text>);
   }
 }
 
-export default RestaurantList;
+const mapStateToProps = state => {
+  console.log(state)
+  return { restaurants: state.restaurants }
+  // console.log(state)
+};
+
+
+
+export default connect(mapStateToProps, {fetchRestaurantAPI})(RestaurantList);
+
+
+
+
+
+
+// import React, { Component } from 'react';
+// import axios from 'axios';
+// import { View, FlatList } from 'react-native';
+//
+// import RestaurantDetail from './RestaurantDetail';
+//
+// const YELP_URL = 'http://localhost:3000/restaurants'
+//
+// class RestaurantList extends Component {
+//   state = { restaurants: [] };
+//
+//   componentDidMount() {
+//     axios.get(YELP_URL)
+//       .then(response => this.setState({restaurants: response.data}));
+//       // .then((response) => {
+//       //     this.setState({ restaurants: response.data })
+//       // });
+//   }
+//
+//   render () {
+//     return (
+//       <FlatList
+//         data={this.state.restaurants}
+//         keyExtractor={restaurant => restaurant.yelp_id}
+//         renderItem={({item}) =>
+//           <View>
+//             <RestaurantDetail restaurantData={item} />
+//           </View>
+//         }
+//       />
+//     );
+//   }
+// }
+//
+// export default RestaurantList;
