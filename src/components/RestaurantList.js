@@ -1,40 +1,41 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchRestaurantAPI } from '../actions';
-import { View, Text, FlatList } from 'react-native';
+import { View, ScrollView, FlatList } from 'react-native';
 
-// import RestaurantDetail from './RestaurantDetail';
+import RestaurantDetail from './RestaurantDetail';
 
 class RestaurantList extends Component {
-  // state = { restaurants: [] };
+  // state = { restaurantList: [] };
 
   componentDidMount() {
-    console.log('componentDidMount')
+    console.log('second')
     this.props.fetchRestaurantAPI()
   }
-  // <FlatList
-  //   data={this.state.restaurants}
-  //   keyExtractor={restaurant => restaurant.yelp_id}
-  //   renderItem={({item}) =>
-  //     <View>
-  //       <RestaurantDetail restaurantData={item} />
-  //     </View>
-  //   }
-  // />
+
+  // createState = () => {
+  //   this.setState({ restaurantList: this.props.restaurants })
+  // }
 
   render () {
-    console.log(this.props)
-    return (<Text>Hello</Text>);
+    console.log(this.state);
+    console.log('fourth')
+
+    let restaurants = this.props.restaurants
+    console.log(restaurants);
+    return (
+      <ScrollView>
+        <RestaurantDetail restaurantData={restaurants} />
+      </ScrollView>
+    );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state)
-  return { restaurants: state.restaurants }
-  // console.log(state)
+  console.log('third')
+  return { restaurants: state.restaurants.data }
 };
-
-
 
 export default connect(mapStateToProps, {fetchRestaurantAPI})(RestaurantList);
 
@@ -42,7 +43,15 @@ export default connect(mapStateToProps, {fetchRestaurantAPI})(RestaurantList);
 
 
 
-
+// <FlatList
+//   data={restaurants}
+//   keyExtractor={restaurants => restaurants.yelp_id}
+//   renderItem={({restaurant}) =>
+//     <View>
+//       <RestaurantDetail restaurantData={restaurant} />
+//     </View>
+//   }
+// />
 // import React, { Component } from 'react';
 // import axios from 'axios';
 // import { View, FlatList } from 'react-native';
