@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  LayoutAnimation,
+  TouchableOpacity
+} from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
@@ -10,13 +18,20 @@ import Stars from './common/Stars';
 import WaitTime from './common/WaitTime';
 
 class RestaurantDetail extends Component {
+  componentDidUpdate() {
+    LayoutAnimation.spring();
+  }
 
   renderDescription() {
-    const { restaurantData, selectedRestaurantId } = this.props;
+    const { restaurantData, expanded } = this.props;
 
-    if (restaurantData.yelp_id === selectedRestaurantId) {
+    if (expanded) {
       return (
-        <Text>{restaurantData.yelp_url}</Text>
+        <CardSection>
+          <Text style={styles.expandContainerStyle}>
+            {restaurantData.yelp_url}
+          </Text>
+        </CardSection>
       );
     }
   }
@@ -24,8 +39,7 @@ class RestaurantDetail extends Component {
     const { yelp_id, name, rating, review_count, image_url, popular_times } = this.props.restaurantData;
 
     return (
-
-    <TouchableWithoutFeedback
+    <TouchableOpacity
       onPress={() => this.props.selectRestaurant(yelp_id)}
     >
       <View>
@@ -47,7 +61,7 @@ class RestaurantDetail extends Component {
         </Card>
         {this.renderDescription()}
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
     );
   }
 }
@@ -72,16 +86,23 @@ const styles = StyleSheet.create({
   },
   reviewCountStyle: {
     position: 'relative'
+  },
+  expandContainerStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    marginRight: 10
   }
 });
 
 RestaurantDetail.propTypes = {
   restaurantData: PropTypes.object.isRequired,
-  selectRestaurant: PropTypes.func
+  expanded: PropTypes.bool
 }
 
-const mapStateToProps = state => {
-  return { selectedRestaurantId: state.selectedRestaurantId }
+const mapStateToProps = (state, ownProps) => {
+  const expanded = state.selectedRestaurantId === ownProps.restaurantData.yelp_id
+  return { expanded }
 };
 
 export default connect(mapStateToProps, actions)(RestaurantDetail);

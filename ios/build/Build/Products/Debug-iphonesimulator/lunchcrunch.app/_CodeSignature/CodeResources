@@ -51,7 +51,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		GoncbcxB0+vaHXGhV36j1ym4a0A=
+		FOHMXzZAuj7CT0gd3cnlVMAW8pc=
+		</data>
+		<key>Ionicons.ttf</key>
+		<data>
+		D3lWcE/mG0nEHqGiIFEkD3AKK0Q=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -75,7 +79,7 @@
 		</data>
 		<key>PlugIns/lunchcrunchTests.xctest/lunchcrunchTests</key>
 		<data>
-		28dVmHmWpatW1Yo/H0Ml/SSSp5E=
+		cA7UzslNfHFE5TvxGgX6QensbOU=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -192,6 +196,17 @@
 			2hnwNPgdaewT28DbTqe0Gpaccdc2akBF8IjnGtISc58=
 			</data>
 		</dict>
+		<key>Ionicons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			D3lWcE/mG0nEHqGiIFEkD3AKK0Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			u0dnmwuuuEgbf1HGitM65aUmc2y1CxcXzGD/a2X5CKM=
+			</data>
+		</dict>
 		<key>PlugIns/lunchcrunchTests.xctest.dSYM/Contents/Info.plist</key>
 		<dict>
 			<key>hash</key>
@@ -240,11 +255,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			28dVmHmWpatW1Yo/H0Ml/SSSp5E=
+			cA7UzslNfHFE5TvxGgX6QensbOU=
 			</data>
 			<key>hash2</key>
 			<data>
-			DZVxsEe7Eol2VcI+VQIKvZdSVNpL0mmTlTE5xj8d+S8=
+			LP4CVaUHflIMWvxMOH7gxFBubrAtBHmutq7hIZQ+lwU=
 			</data>
 		</dict>
 	</dict>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchRestaurantAPI } from '../actions';
 import { View, FlatList } from 'react-native';
@@ -6,7 +7,6 @@ import { View, FlatList } from 'react-native';
 import RestaurantDetail from './RestaurantDetail';
 
 class RestaurantList extends Component {
-
   componentDidMount() {
     this.props.fetchRestaurantAPI()
   }
@@ -28,8 +28,13 @@ class RestaurantList extends Component {
   }
 }
 
+RestaurantList.propTypes = {
+  fetchRestaurantAPI: PropTypes.func,
+  restaurants: PropTypes.array
+}
+
 const mapStateToProps = state => {
   return { restaurants: state.restaurants.data }
 };
 
-export default connect(mapStateToProps, {fetchRestaurantAPI})(RestaurantList);
+export default connect(mapStateToProps, { fetchRestaurantAPI })(RestaurantList);
