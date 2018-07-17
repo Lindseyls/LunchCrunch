@@ -1,27 +1,29 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 import RestaurantList from './components/RestaurantList';
+import Search from './components/Search';
 
 const RouterComponent = () => {
 
   return (
     <Router>
-      <Scene key="root" style={styles.topContainer}>
+      <Scene key="root" hideNavBar>
+        <Scene key="main">
+          <Scene
+            key="restaurantList"
+            component={RestaurantList}
+            title="🌮 Lunch Crunch! 🍱"
+            initial
+          />
+        </Scene>
         <Scene
-          key="list"
-          component={RestaurantList}
-          title="🌮 Lunch Crunch! 🍱"
+          key="search"
+          component={Search}
+          title="Search"
         />
       </Scene>
     </Router>
   );
 };
-
-const styles = {
-  topContainer: {
-    flex: 1,
-    backgroundColor: 'orange'
-  }
-}
 
 export default RouterComponent;

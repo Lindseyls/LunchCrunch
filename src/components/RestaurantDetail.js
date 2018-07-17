@@ -27,11 +27,11 @@ class RestaurantDetail extends Component {
 
     if (expanded) {
       return (
-        <CardSection>
+
           <Text style={styles.expandContainerStyle}>
             {restaurantData.yelp_url}
           </Text>
-        </CardSection>
+
       );
     }
   }
@@ -91,7 +91,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 10,
-    marginRight: 10
+    marginRight: 10,
+    backgroundColor: '#ddd'
   }
 });
 

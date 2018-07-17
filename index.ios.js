@@ -1,3 +1,5 @@
+import App from './src/App';
+
 // import React from 'react';
 // import { View, Text, AppRegistry } from 'react-native';
 // const RCTLog = require('RCTLog');

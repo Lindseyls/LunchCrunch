@@ -28,6 +28,7 @@ class RestaurantList extends Component {
   }
 }
 
+
 RestaurantList.propTypes = {
   fetchRestaurantAPI: PropTypes.func,
   restaurants: PropTypes.array
