@@ -12,7 +12,7 @@ class RestaurantDetail extends Component {
   render () {
     console.log(this.props.restaurantData)
     return (
-        <Text>{this.props.restaurantData ? this.props.restaurantData.name : null}</Text>
+        <Text>{this.props.restaurantData.item.name}</Text>
     )
 
   // const { name, rating, review_count, image_url, popular_times } = restaurantData;

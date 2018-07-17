@@ -1,34 +1,37 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchRestaurantAPI } from '../actions';
-import { View, ScrollView, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 
 import RestaurantDetail from './RestaurantDetail';
 
 class RestaurantList extends Component {
-  // state = { restaurantList: [] };
 
   componentDidMount() {
     console.log('second')
     this.props.fetchRestaurantAPI()
   }
 
-  // createState = () => {
-  //   this.setState({ restaurantList: this.props.restaurants })
-  // }
-
   render () {
-    console.log(this.state);
     console.log('fourth')
+    console.log(typeof this.props.restaurants);
 
     let restaurants = this.props.restaurants
-    console.log(restaurants);
-    return (
-      <ScrollView>
-        <RestaurantDetail restaurantData={restaurants} />
-      </ScrollView>
-    );
+
+    if (restaurants !== null && restaurants !== undefined) {
+      return ( <FlatList
+        data={restaurants}
+        keyExtractor={restaurants => restaurants.yelp_id}
+        renderItem={(restaurant) =>
+          <View>
+            <RestaurantDetail restaurantData={restaurant} />
+          </View>
+        }
+      /> );
+    } else {
+      return (null);
+    }
+
   }
 }
 
@@ -43,15 +46,7 @@ export default connect(mapStateToProps, {fetchRestaurantAPI})(RestaurantList);
 
 
 
-// <FlatList
-//   data={restaurants}
-//   keyExtractor={restaurants => restaurants.yelp_id}
-//   renderItem={({restaurant}) =>
-//     <View>
-//       <RestaurantDetail restaurantData={restaurant} />
-//     </View>
-//   }
-// />
+//
 // import React, { Component } from 'react';
 // import axios from 'axios';
 // import { View, FlatList } from 'react-native';
