@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 import Card from './common/Card';
 import CardSection from './common/CardSection';
@@ -9,32 +11,44 @@ import WaitTime from './common/WaitTime';
 
 class RestaurantDetail extends Component {
 
-  render () {
-    console.log(this.props.restaurantData)
+  renderDescription() {
+    const { restaurantData, selectedRestaurantId } = this.props;
+
+    if (restaurantData.yelp_id === selectedRestaurantId) {
+      return (
+        <Text>{restaurantData.yelp_url}</Text>
+      );
+    }
+  }
+  render() {
+    const { yelp_id, name, rating, review_count, image_url, popular_times } = this.props.restaurantData;
+
     return (
-        <Text>{this.props.restaurantData.item.name}</Text>
-    )
 
-  // const { name, rating, review_count, image_url, popular_times } = restaurantData;
-
-  // return (
-  //   <Card>
-  //     <CardSection>
-  //       <View style={styles.thumbnailContainerStyle}>
-  //         <Image
-  //           style={styles.thumbnailStyle}
-  //           source={{ uri: image_url }}
-  //         />
-  //       </View>
-  //       <View style={styles.contentStyle}>
-  //         <Text style={styles.headerTextStyle}>{name}</Text>
-  //         <Stars votes={rating} />
-  //         <Text style={styles.reviewCountStyle}>{review_count} reviews</Text>
-  //         <WaitTime times={popular_times} />
-  //       </View>
-  //     </CardSection>
-  //   </Card>
-  // );
+    <TouchableWithoutFeedback
+      onPress={() => this.props.selectRestaurant(yelp_id)}
+    >
+      <View>
+        <Card>
+          <CardSection>
+            <View style={styles.thumbnailContainerStyle}>
+              <Image
+                style={styles.thumbnailStyle}
+                source={{ uri: image_url }}
+              />
+            </View>
+            <View style={styles.contentStyle}>
+              <Text style={styles.headerTextStyle}>{name}</Text>
+              <Stars votes={rating} />
+              <Text style={styles.reviewCountStyle}>{review_count} reviews</Text>
+              <WaitTime times={popular_times} />
+            </View>
+          </CardSection>
+        </Card>
+        {this.renderDescription()}
+      </View>
+    </TouchableWithoutFeedback>
+    );
   }
 }
 
@@ -62,7 +76,12 @@ const styles = StyleSheet.create({
 });
 
 RestaurantDetail.propTypes = {
-  restaurantData: PropTypes.object.isRequired
+  restaurantData: PropTypes.object.isRequired,
+  selectRestaurant: PropTypes.func
 }
 
-export default RestaurantDetail;
+const mapStateToProps = state => {
+  return { selectedRestaurantId: state.selectedRestaurantId }
+};
+
+export default connect(mapStateToProps, actions)(RestaurantDetail);
