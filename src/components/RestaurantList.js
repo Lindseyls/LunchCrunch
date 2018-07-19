@@ -17,7 +17,7 @@ class RestaurantList extends Component {
     return (
       <FlatList
         data={restaurants}
-        keyExtractor={restaurants => restaurants.yelp_id}
+        keyExtractor={restaurants => restaurants.id}
         renderItem={(restaurant) =>
         <View>
           <RestaurantDetail restaurantData={restaurant.item} />

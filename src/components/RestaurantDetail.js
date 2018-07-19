@@ -5,7 +5,6 @@ import {
   Text,
   Image,
   StyleSheet,
-  TouchableWithoutFeedback,
   LayoutAnimation,
   TouchableOpacity
 } from 'react-native';
@@ -29,12 +28,13 @@ class RestaurantDetail extends Component {
       return (
 
           <Text style={styles.expandContainerStyle}>
-            {restaurantData.yelp_url}
+            Linking.openURL({restaurantData.yelp_url})
           </Text>
 
       );
     }
   }
+
   render() {
     const { yelp_id, name, rating, review_count, image_url, popular_times } = this.props.restaurantData;
 
