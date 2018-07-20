@@ -12,7 +12,7 @@ class WaitTime extends Component {
     }
 
     let avg = total / this.props.times.length;
-    return avg;
+    return (avg).toFixed(0);
   }
 
   findWaitTime = () => {
