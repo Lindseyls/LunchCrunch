@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Image, Button, StyleSheet, Text, Dimensions } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 
 class Map extends Component {
   state = {
@@ -35,11 +35,34 @@ class Map extends Component {
     });
   };
 
+  getLocationHandler = () => {
+    navigator.geolocation.getCurrentPosition(pos => {
+      const coordsEvent = {
+        nativeEvent: {
+          coordinate: {
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude
+          }
+        }
+      };
+      this.pickLocationHandler(coordsEvent);
+    },
+    err => {
+      console.log(err)
+      alert("Fetching the position failed, please pick one manually!");
+    })
+  }
+
   render () {
     let marker = null;
 
     if (this.state.locationChosen) {
-      marker = <MapView.Marker coordinate={this.state.focusedLocation} />;
+      marker =
+      <Marker coordinate={this.state.focusedLocation}>
+        <View style={styles.radius}>
+          <View style={styles.marker}/>
+        </View>
+      </Marker>;
     }
 
     return (
@@ -53,7 +76,7 @@ class Map extends Component {
           {marker}
         </MapView>
         <View style={styles.button}>
-          <Button title="Locate Me" onPress={() => alert('Pick Location!')} />
+          <Button title="Locate Me" onPress={this.getLocationHandler} />
         </View>
       </View>
     );
@@ -71,6 +94,26 @@ const styles = StyleSheet.create({
   },
   button: {
     margin: 8
+  },
+  radius: {
+    height: 50,
+    width: 50,
+    borderRadius: 50 / 2,
+    overflow: 'hidden',
+    backgroundColor: 'rgba(0, 122, 255, 0.1)',
+    borderWidth: 1,
+    borderColor: 'rgba(0, 122, 255, 0.3)',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  marker: {
+    height: 20,
+    width: 20,
+    borderWidth: 3,
+    borderColor: 'white',
+    borderRadius: 20 / 2,
+    overflow: 'hidden',
+    backgroundColor: '#007AFF'
   }
 });
 
