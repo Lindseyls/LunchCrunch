@@ -4,6 +4,7 @@ import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 
 import Stars from './common/Stars';
 import WaitTime from './common/WaitTime';
+import TotalTime from './common/TotalTime';
 import MapViewSection from './common/MapViewSection';
 
 class SelectedRestaurantDetail extends Component {
@@ -28,6 +29,7 @@ class SelectedRestaurantDetail extends Component {
           <Stars votes={rating} />
           <Text style={styles.reviewCountStyle}>{review_count} reviews</Text>
           <WaitTime times={popular_times} />
+          <TotalTime times={popular_times} />
         </View>
       </ScrollView>
     );

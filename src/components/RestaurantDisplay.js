@@ -15,6 +15,7 @@ import Card from './common/Card';
 import CardSection from './common/CardSection';
 import Stars from './common/Stars';
 import WaitTime from './common/WaitTime';
+import TotalTime from './common/TotalTime';
 
 class RestaurantDisplay extends Component {
   // componentDidUpdate() {
@@ -53,6 +54,7 @@ class RestaurantDisplay extends Component {
                 <Text style={styles.headerTextStyle}>{name}</Text>
                 <Stars votes={rating} />
                 <WaitTime times={popular_times} />
+                <TotalTime times={popular_times} />
               </View>
             </CardSection>
           </Card>

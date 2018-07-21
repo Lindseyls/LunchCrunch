@@ -2,25 +2,25 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
-class WaitTime extends Component {
+class TotalTime extends Component {
 
   findAverage = () => {
     let total = 0;
 
     for (let i = 0; i < this.props.times.length; i++) {
-      total += this.props.times[i].wait_time;
+      total += this.props.times[i].total_time_spent;
     }
 
     let avg = total / this.props.times.length;
     return (avg).toFixed(0);
   }
 
-  findWaitTime = () => {
+  findTotalTime = () => {
     const times = this.props.times
 
     if (times.length === 0) {
       return (
-        <Text>Wait Time: <Text style={styles.timeStyle}>none</Text></Text>
+        <Text>Total Time: <Text style={styles.timeStyle}>none</Text></Text>
       );
     } else if (times.length === 1) {
       return (
@@ -30,7 +30,7 @@ class WaitTime extends Component {
             listKey={(item, index) => 'D' + index.toString()}
             renderItem={({item}) =>
             <Text>
-              Wait Time: <Text style={styles.timeStyle}>{item.wait_time} min</Text>
+              Total Time: <Text style={styles.timeStyle}>{item.total_time_spent} min</Text>
             </Text>
             }
           />
@@ -39,7 +39,7 @@ class WaitTime extends Component {
     } else if (times.length > 1) {
       return (
         <Text>
-          Wait Time: <Text style={styles.timeStyle}>{this.findAverage()} min</Text>
+          Total Time: <Text style={styles.timeStyle}>{this.findAverage()} min</Text>
         </Text>
       );
     }
@@ -48,7 +48,7 @@ class WaitTime extends Component {
   render () {
     return (
       <View>
-        {this.findWaitTime()}
+        {this.findTotalTime()}
       </View>
     );
   }
@@ -57,14 +57,14 @@ class WaitTime extends Component {
 const styles = StyleSheet.create({
   timeStyle: {
     fontWeight: '900',
-    color: 'orange',
+    color: 'red',
     padding: 5,
     fontSize: 15
   }
 });
 
-WaitTime.propTypes = {
+TotalTime.propTypes = {
   times: PropTypes.array.isRequired,
 }
 
-export default WaitTime;
+export default TotalTime;
