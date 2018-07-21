@@ -17,30 +17,30 @@ import Stars from './common/Stars';
 import WaitTime from './common/WaitTime';
 
 class RestaurantDetail extends Component {
-  componentDidUpdate() {
-    LayoutAnimation.spring();
-  }
-
-  renderDescription() {
-    const { restaurantData, expanded } = this.props;
-
-    if (expanded) {
-      return (
-
-          <Text style={styles.expandContainerStyle}>
-            Linking.openURL({restaurantData.yelp_url})
-          </Text>
-
-      );
-    }
-  }
-
+  // componentDidUpdate() {
+  //   LayoutAnimation.spring();
+  // }
+  //
+  // renderDescription() {
+  //   const { restaurantData, expanded } = this.props;
+  //
+  //   if (expanded) {
+  //     return (
+  //
+  //         <Text style={styles.expandContainerStyle}>
+  //           Linking.openURL({restaurantData.yelp_url})
+  //         </Text>
+  //
+  //     );
+  //   }
+  // }
+  //
   render() {
-    const { yelp_id, name, rating, review_count, image_url, popular_times } = this.props.restaurantData;
+    const { name, rating, review_count, image_url, popular_times } = this.props.restaurantData;
 
     return (
     <TouchableOpacity
-      onPress={() => this.props.selectRestaurant(yelp_id)}
+      onItemPressed={this.props.onRestaurantSelected}
     >
       <View>
         <Card>
@@ -59,7 +59,6 @@ class RestaurantDetail extends Component {
             </View>
           </CardSection>
         </Card>
-        {this.renderDescription()}
       </View>
     </TouchableOpacity>
     );
@@ -101,9 +100,11 @@ RestaurantDetail.propTypes = {
   expanded: PropTypes.bool
 }
 
-const mapStateToProps = (state, ownProps) => {
-  const expanded = state.selectedRestaurantId === ownProps.restaurantData.yelp_id
-  return { expanded }
-};
+// const mapStateToProps = (state, ownProps) => {
+//   const expanded = state.selectedRestaurantId === ownProps.restaurantData.yelp_id
+//   return { expanded }
+// };
 
-export default connect(mapStateToProps, actions)(RestaurantDetail);
+// export default connect(mapStateToProps, actions)(RestaurantDetail);
+
+export default RestaurantDetail;

@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { fetchRestaurantAPI } from '../actions';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 
 import RestaurantDetail from './RestaurantDetail';
 
 class RestaurantList extends Component {
-  componentDidMount() {
-    this.props.fetchRestaurantAPI()
-  }
 
   render () {
     let restaurants = this.props.restaurants
@@ -17,11 +12,12 @@ class RestaurantList extends Component {
     return (
       <FlatList
         data={restaurants}
-        keyExtractor={restaurants => restaurants.id}
+        // keyExtractor={restaurants => restaurants.id}
         renderItem={(restaurant) =>
-        <View>
-          <RestaurantDetail restaurantData={restaurant.item} />
-        </View>
+          <RestaurantDetail
+            restaurantData={restaurant.item}
+            onRestaurantSelected={() => this.props.onItemSelected(restaurant.item.id)}
+          />
         }
       />
     );
@@ -30,12 +26,8 @@ class RestaurantList extends Component {
 
 
 RestaurantList.propTypes = {
-  fetchRestaurantAPI: PropTypes.func,
-  restaurants: PropTypes.array
+  restaurants: PropTypes.array,
+  onItemSelected: PropTypes.func,
 }
 
-const mapStateToProps = state => {
-  return { restaurants: state.restaurants.data }
-};
-
-export default connect(mapStateToProps, { fetchRestaurantAPI })(RestaurantList);
+export default RestaurantList;

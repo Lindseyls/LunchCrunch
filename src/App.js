@@ -5,16 +5,18 @@ import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 
 import HomeScreen from './screens/Home';
-import RestaurantListScreen from './components/RestaurantList';
+import RestaurantScreen from './components/Restaurants';
 import SearchScreen from './components/Search';
 import MapScreen from './components/Map';
+import SelectedRestaurantDetail from './components/SelectedRestaurantDetail';
 
 const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
 Navigation.registerComponent("lunch-crunch.HomeScreen", () => HomeScreen, store, Provider);
-Navigation.registerComponent("lunch-crunch.RestaurantListScreen", () => RestaurantListScreen, store, Provider);
+Navigation.registerComponent("lunch-crunch.RestaurantScreen", () => RestaurantScreen, store, Provider);
 Navigation.registerComponent("lunch-crunch.SearchScreen", () => SearchScreen, store, Provider);
 Navigation.registerComponent("lunch-crunch.MapScreen", () => MapScreen, store, Provider);
+Navigation.registerComponent("lunch-crunch.SelectedRestaurantDetail", () => SelectedRestaurantDetail)
 
 Navigation.startSingleScreenApp({
   screen: {
