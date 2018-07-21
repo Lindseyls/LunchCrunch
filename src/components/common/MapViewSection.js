@@ -61,7 +61,7 @@ const styles = {
 }
 
 MapViewSection.propTypes = {
-  restaurant: PropTypes.array.isRequired,
+  restaurant: PropTypes.object.isRequired,
 }
 
 export default MapViewSection;
