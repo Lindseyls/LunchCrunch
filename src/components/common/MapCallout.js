@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Text, View, Image, TouchableOpacity, Linking } from 'react-native';
 
 class MapCallout extends Component {
 
   render() {
-    const { name, image_url, location } = this.props
+    const { name, image, location } = this.props
 
     return (
       <TouchableOpacity onPress={() => Linking.openURL(`maps://app?daddr=${location[0]}+${location[1]}`)}>
       <View>
         <Image
           style={styles.thumbnailStyle}
-          source={{ uri: image_url }}
+          source={{ uri: image }}
         />
         <Text style={styles.title}>
           { name }
@@ -25,7 +26,9 @@ class MapCallout extends Component {
 const styles = {
   thumbnailStyle: {
     height: 55,
-    width: 55
+    width: 55,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
     fontSize: 16,
@@ -34,4 +37,10 @@ const styles = {
   }
 };
 
-export {MapCallout}
+MapCallout.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string,
+  location: PropTypes.array
+}
+
+export default MapCallout;

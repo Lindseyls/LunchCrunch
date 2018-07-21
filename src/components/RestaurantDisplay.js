@@ -36,7 +36,7 @@ class RestaurantDisplay extends Component {
   // }
 
   render() {
-    const { name, rating, review_count, image_url, popular_times } = this.props.restaurantData;
+    const { name, rating, image_url, popular_times } = this.props.restaurantData;
 
     return (
       <TouchableOpacity onPress={this.props.onItemPressed}>
@@ -52,7 +52,6 @@ class RestaurantDisplay extends Component {
               <View style={styles.contentStyle}>
                 <Text style={styles.headerTextStyle}>{name}</Text>
                 <Stars votes={rating} />
-                <Text style={styles.reviewCountStyle}>{review_count} reviews</Text>
                 <WaitTime times={popular_times} />
               </View>
             </CardSection>
@@ -81,16 +80,13 @@ const styles = StyleSheet.create({
     height: 55,
     width: 55
   },
-  reviewCountStyle: {
-    position: 'relative'
-  },
-  expandContainerStyle: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 10,
-    marginRight: 10,
-    backgroundColor: '#ddd'
-  }
+  // expandContainerStyle: {
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   marginLeft: 10,
+  //   marginRight: 10,
+  //   backgroundColor: '#ddd'
+  // }
 });
 
 RestaurantDisplay.propTypes = {

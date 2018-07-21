@@ -1,38 +1,48 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 
 import Stars from './common/Stars';
 import WaitTime from './common/WaitTime';
+import MapViewSection from './common/MapViewSection';
 
 class SelectedRestaurantDetail extends Component {
 
   render() {
+    const restaurant = this.props.restaurantData
     const { name, rating, review_count, image_url, popular_times } = this.props.restaurantData;
 
     return (
-      <View>
-      <View style={styles.thumbnailContainerStyle}>
-        <Image
-          style={styles.imageStyle}
-          source={{ uri: image_url }}
-        />
-      </View>
-      <View style={styles.contentStyle}>
-        <Text style={styles.headerTextStyle}>{name}</Text>
-        <Stars votes={rating} />
-        <Text style={styles.reviewCountStyle}>{review_count} reviews</Text>
-        <WaitTime times={popular_times} />
-      </View>
-      </View>
+      <ScrollView>
+        <View style={styles.thumbnailContainerStyle}>
+          <Image
+            style={styles.imageStyle}
+            source={{ uri: image_url }}
+          />
+        </View>
+        <View style={styles.mapStyle}>
+          <MapViewSection restaurant={restaurant} />
+        </View>
+        <View style={styles.contentStyle}>
+          <Text style={styles.headerTextStyle}>{name}</Text>
+          <Stars votes={rating} />
+          <Text style={styles.reviewCountStyle}>{review_count} reviews</Text>
+          <WaitTime times={popular_times} />
+        </View>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   imageStyle: {
-    height: 300,
-    width: 450
+    height: 150,
+    width: "100%",
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  mapStyle: {
+    flex: 1
   }
 });
 
