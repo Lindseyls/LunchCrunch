@@ -17,8 +17,8 @@ const startTabs = () => {
         },
         {
           screen: "lunch-crunch.RestaurantScreen",
-          label: "List",
-          title: "List",
+          label: "Restaurant List",
+          title: "Restaurant List",
           icon: sources[1]
         },
         {

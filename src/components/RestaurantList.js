@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FlatList } from 'react-native';
 
-import RestaurantDetail from './RestaurantDetail';
+import RestaurantDisplay from './RestaurantDisplay';
 
 class RestaurantList extends Component {
 
@@ -14,9 +14,9 @@ class RestaurantList extends Component {
         data={restaurants}
         // keyExtractor={restaurants => restaurants.id}
         renderItem={(restaurant) =>
-          <RestaurantDetail
+          <RestaurantDisplay
             restaurantData={restaurant.item}
-            onRestaurantSelected={() => this.props.onItemSelected(restaurant.item.id)}
+            onItemPressed={() => this.props.onItemSelected(restaurant.item.id)}
           />
         }
       />

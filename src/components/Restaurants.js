@@ -11,19 +11,18 @@ class Restaurants extends Component {
     this.props.fetchRestaurantAPI()
   }
 
-  itemSelectedHandler = key => {
-    console.log(key);
-    const selRest = this.props.restaurants.find(restaurant => {
-      return restaurant.key === key;
+  itemSelectedHandler = id => {
+    const selRest = this.props.restaurants.find(place => {
+      return place.id === id;
     });
     this.props.navigator.push({
-      screen: "lunch-crunch.SelectedRestaurantDetail",
+      screen: "lunch-crunch.RestaurantDetail",
       title: selRest.name,
       passProps: {
         restaurantData: selRest
       }
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -39,7 +38,8 @@ class Restaurants extends Component {
 
 Restaurants.propTypes = {
   fetchRestaurantAPI: PropTypes.func,
-  restaurants: PropTypes.array
+  restaurants: PropTypes.array,
+  navigator: PropTypes.funcs
 }
 
 const mapStateToProps = state => {
