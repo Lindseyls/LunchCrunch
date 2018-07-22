@@ -26,13 +26,19 @@ class Restaurants extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <RestaurantList
           restaurants={this.props.restaurants}
           onItemSelected={this.itemSelectedHandler}
         />
       </View>
     );
+  }
+}
+
+const styles = {
+  container: {
+    backgroundColor: '#FACDC2',
   }
 }
 

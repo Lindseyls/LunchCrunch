@@ -5,7 +5,7 @@ import {
   Text,
   Image,
   StyleSheet,
-  TouchableOpacity
+  TouchableWithoutFeedback
 } from 'react-native';
 // import { connect } from 'react-redux';
 // import * as actions from '../actions';
@@ -21,7 +21,7 @@ class RestaurantDisplay extends Component {
     const { name, price, rating, image_url, popular_times } = this.props.restaurantData;
 
     return (
-      <TouchableOpacity onPress={this.props.onItemPressed}>
+      <TouchableWithoutFeedback onPress={this.props.onItemPressed}>
         <View>
           <Card>
             <CardSection>
@@ -43,7 +43,7 @@ class RestaurantDisplay extends Component {
             </CardSection>
           </Card>
         </View>
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     );
   }
 }
@@ -51,10 +51,11 @@ class RestaurantDisplay extends Component {
 const styles = StyleSheet.create({
   contentStyle: {
     flexDirection: 'column',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   headerTextStyle: {
-    fontSize: 18
+    fontSize: 16,
+    fontWeight: 'bold'
   },
   thumbnailContainerStyle: {
     justifyContent: 'center',

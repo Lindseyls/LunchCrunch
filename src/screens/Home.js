@@ -12,7 +12,7 @@ class HomeScreen extends Component {
 
   render () {
     return (
-      <View style={styles.container}>
+      <View>
         <View style={styles.logoStyle}>
           <Image
             source={ logo }
@@ -22,10 +22,10 @@ class HomeScreen extends Component {
           <Button title="Let's Get Started!" onPress={this.loginHandler} />
         </View>
         <View>
-        <Image
-          style={styles.backgroundStyle}
-          source={ background }
-        />
+          <Image
+            style={styles.backgroundStyle}
+            source={ background }
+          />
         </View>
       </View>
     );
@@ -33,12 +33,8 @@ class HomeScreen extends Component {
 }
 
 const styles = {
-  container: {
-    backgroundColor: 'FBC8BE',
-    // flex:1
-  },
   logoStyle: {
-    marginTop: 100,
+    marginTop: 50,
     height: 200,
     width: 200,
     justifyContent: 'center',
@@ -46,7 +42,7 @@ const styles = {
     alignSelf: 'center'
   },
   backgroundStyle: {
-    height: 300,
+    height: 350,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
