@@ -21,7 +21,6 @@ Navigation.registerComponent("lunch-crunch.MapScreen", () => MapScreen, store, P
 Navigation.startSingleScreenApp({
   screen: {
     screen: "lunch-crunch.HomeScreen",
-    title: "🌮 Lunch Crunch! 🍱"
   }
 });
 
