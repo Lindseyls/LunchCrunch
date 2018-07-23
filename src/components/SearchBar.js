@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, View, TextInput, Button } from 'react-native';
+import { StyleSheet, View, TextInput } from 'react-native';
+import Button from 'react-native-button'
 
 class SearchBar extends Component {
   state = {
@@ -22,15 +23,16 @@ class SearchBar extends Component {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.textInput}
-          placeholder='Find your lunch in a crunch'
+          placeholder="Find your lunch in a crunch"
           value = {this.state.restaurantName}
           onChangeText={this.placeNameChangedHandler}
         />
         <Button
           style={styles.buttonStyle}
-          onPress={this.searchHandler()}
-          title="Search"
-        />
+          onPress={() => this.searchHandler()}
+        >
+          Search
+        </Button>
       </View>
     );
   }
@@ -40,30 +42,31 @@ const styles = StyleSheet.create({
   inputContainer: {
     height: "100%",
     width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 50
   },
   textInput: {
     width: '80%',
-    height: '10%',
+    height: '50%',
     borderColor: '#414B6B',
     borderWidth: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    marginRight: 3
   },
   buttonStyle: {
-    padding: 10,
-    color: '#414B6B',
-    // overflow:'hidden',
+    padding: 5,
+    color: 'white',
+    overflow:'hidden',
     borderColor: '#414B6B',
     borderWidth: 1,
     borderRadius: 5,
-    backgroundColor: '#414B6B'
+    backgroundColor: '#414B6B',
   }
 });
 
 SearchBar.propTypes = {
-  restaurantCallback: PropTypes.func.isRequired
+  restaurantCallback: PropTypes.func
 }
 
 export default SearchBar;

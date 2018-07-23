@@ -1,7 +1,7 @@
 import { FETCH_RESTAURANTS_SUCCESS, FETCHING_RESTAURANTS, FETCH_RESTAURANTS_FAILURE } from './constants';
 import axios from 'axios';
 
-const YELP_URL = 'http://192.168.1.172:3000/restaurants'
+const YELP_URL = 'http://localhost:3000/restaurants'
 
 export const fetchRestaurantAPI = () => {
 

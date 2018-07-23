@@ -6,28 +6,10 @@ import SearchBar from './SearchBar';
 
 class Search extends Component {
 
-  itemSearchedHandler = id => {
-
-    console.log(id);
-    console.log(this.props.restaurants);
-
-    // const searchRest = this.props.restaurants.find(place => {
-    //   return place.id === id;
-    // });
-    // this.props.navigator.push({
-    //   screen: "lunch-crunch.RestaurantDetail",
-    //   title: searchRest.name,
-    //   passProps: {
-    //     restaurantData: searchRest
-    //   }
-    // })
-  }
-
   render() {
-
     return (
       <View style={styles.container}>
-        <SearchBar restaurantCallback={this.itemSearchedHandler = this.itemSearchedHandler.bind(this)} />
+        <SearchBar restaurantCallback={this.props.itemSelectedCallback} />
       </View>
     );
   }
@@ -36,17 +18,16 @@ class Search extends Component {
 const styles = {
   container: {
     flex: 1,
+    padding: 10,
     backgroundColor: '#FACDC2',
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
+    justifyContent: 'flex-start',
   }
 }
 
 Search.propTypes = {
   fetchRestaurantAPI: PropTypes.func,
   restaurants: PropTypes.array,
-  // navigator: PropTypes.funcs
 }
 
 export default Search;
