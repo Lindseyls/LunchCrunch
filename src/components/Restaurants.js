@@ -16,6 +16,9 @@ class Restaurants extends Component {
     const selRest = this.props.restaurants.find(place => {
       return place.id === id;
     });
+    if (selRest === undefined || null) {
+      return alert(`No restaurant found with id: ${id}`)
+    }
     this.props.navigator.push({
       screen: "lunch-crunch.RestaurantDetail",
       title: selRest.name,
@@ -29,6 +32,9 @@ class Restaurants extends Component {
     const searchRest = this.props.restaurants.find(place => {
       return place.name === name;
     });
+    if (searchRest === undefined || null) {
+      return alert(`No restaurant found with name: ${name}`)
+    }
     this.props.navigator.push({
       screen: "lunch-crunch.RestaurantDetail",
       title: searchRest.name,
@@ -58,6 +64,7 @@ class Restaurants extends Component {
 
 const styles = {
   container: {
+    flex: 1,
     backgroundColor: '#FACDC2',
   },
   searchContainer: {

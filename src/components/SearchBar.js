@@ -22,6 +22,7 @@ class SearchBar extends Component {
     return (
       <View style={styles.inputContainer}>
         <TextInput
+          clearButtonMode="always"
           style={styles.textInput}
           placeholder="Find your lunch in a crunch"
           value = {this.state.restaurantName}

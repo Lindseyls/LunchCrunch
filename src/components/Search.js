@@ -26,7 +26,7 @@ const styles = {
 }
 
 Search.propTypes = {
-  itemSelectedCallback: PropTypes.object
+  itemSelectedCallback: PropTypes.func
 }
 
 export default Search;
