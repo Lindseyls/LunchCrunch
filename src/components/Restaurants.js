@@ -38,7 +38,6 @@ class Restaurants extends Component {
     })
   }
 
-
   render() {
 
     return (

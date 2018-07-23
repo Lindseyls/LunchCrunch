@@ -26,8 +26,7 @@ const styles = {
 }
 
 Search.propTypes = {
-  fetchRestaurantAPI: PropTypes.func,
-  restaurants: PropTypes.array,
+  itemSelectedCallback: PropTypes.object
 }
 
 export default Search;
