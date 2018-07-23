@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   headerTextStyle: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: 'bold'
   },
   thumbnailContainerStyle: {
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
 
 RestaurantDisplay.propTypes = {
   restaurantData: PropTypes.object.isRequired,
-  onItemPressed: PropTypes.object
+  onItemPressed: PropTypes.func
   // expanded: PropTypes.bool
 }
 

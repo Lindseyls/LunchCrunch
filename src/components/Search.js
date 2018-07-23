@@ -1,64 +1,58 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import { View } from 'react-native';
+import { fetchRestaurantAPI } from '../actions';
+import { connect } from 'react-redux';
+
+import SearchBar from './SearchBar';
 
 class Search extends Component {
-  state = {
-    restaurantName: ''
-  };
+  componentDidMount() {
+    this.props.fetchRestaurantAPI()
+  }
 
-  placeNameChangedHandler = (value) => {
-    this.setState({
-      restaurantName: value
+  itemSearchedHandler = id => {
+    const searchRest = this.props.restaurants.find(place => {
+      return place.id === id;
     });
-  };
-
-  onSubmitQuery = () => {
-    this.props.setRestaurantCallback(this.state.restaurantName)
+    this.props.navigator.push({
+      screen: "lunch-crunch.RestaurantDetail",
+      title: searchRest.name,
+      passProps: {
+        restaurantData: searchRest
+      }
+    })
   }
 
   render() {
     return (
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.textInput}
-          placeholder='Find your lunch in a crunch'
-          value = {this.state.restaurantName}
-          onChangeText={this.placeNameChangedHandler}
-        />
-        <Button
-          style={styles.buttonStyle}
-          onPress={() => this.onSubmitQuery()}
-          title="Search"
+      <View style={styles.container}>
+        <SearchBar
+          restaurantCallback={this.itemSearchedHandler}
         />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  inputContainer: {
+const styles = {
+  container: {
     flex: 1,
     backgroundColor: '#FACDC2',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 50
-  },
-  textInput: {
-    width: '80%',
-    height: '5%',
-    borderColor: '#414B6B',
-    borderWidth: 1,
-    backgroundColor: '#fff'
-  },
-  buttonStyle: {
-    padding: 10,
-    color: '#414B6B',
-    // overflow:'hidden',
-    borderColor: '#414B6B',
-    borderWidth: 1,
-    borderRadius: 5,
-    backgroundColor: '#414B6B'
+    padding: 20,
   }
-});
+}
 
-export default Search;
+Search.propTypes = {
+  fetchRestaurantAPI: PropTypes.func,
+  restaurants: PropTypes.array,
+  // navigator: PropTypes.funcs
+}
+
+const mapStateToProps = state => {
+  return { restaurants: state.restaurants.data }
+};
+
+export default connect(mapStateToProps, { fetchRestaurantAPI })(Search);

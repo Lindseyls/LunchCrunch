@@ -35,6 +35,7 @@ class HomeScreen extends Component {
 const styles = {
   logoStyle: {
     marginTop: 50,
+    marginLeft: 20,
     height: 200,
     width: 200,
     justifyContent: 'center',

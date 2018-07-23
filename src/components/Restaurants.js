@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { View } from "react-native";
+import { View } from 'react-native';
 import { fetchRestaurantAPI } from '../actions';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import RestaurantList from "./RestaurantList";
+import RestaurantList from './RestaurantList';
 
 class Restaurants extends Component {
   componentDidMount() {
@@ -45,7 +45,7 @@ const styles = {
 Restaurants.propTypes = {
   fetchRestaurantAPI: PropTypes.func,
   restaurants: PropTypes.array,
-  navigator: PropTypes.funcs
+  // navigator: PropTypes.funcs
 }
 
 const mapStateToProps = state => {
