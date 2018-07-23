@@ -5,6 +5,7 @@ import { fetchRestaurantAPI } from '../actions';
 import { connect } from 'react-redux';
 
 import RestaurantList from './RestaurantList';
+import Search from './Search';
 
 class Restaurants extends Component {
   componentDidMount() {
@@ -31,6 +32,7 @@ class Restaurants extends Component {
           restaurants={this.props.restaurants}
           onItemSelected={this.itemSelectedHandler}
         />
+        <Search restaurants={this.props.restaurants} />
       </View>
     );
   }
