@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import RestaurantReducer from './RestaurantReducer';
-import SelectionReducer from './SelectionReducer';
+import FilterReducer from './FilterReducer';
 
 export default combineReducers({
   restaurants: RestaurantReducer,
-  selectedRestaurantId: SelectionReducer
+  filter: FilterReducer
 });

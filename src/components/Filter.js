@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import { View, Text, Picker, StyleSheet } from 'react-native'
 import Button from 'react-native-button'
+import { setFilterTime } from '../actions';
+import {connect} from 'react-redux';
 
 class Filter extends Component {
   state = {
@@ -8,18 +11,22 @@ class Filter extends Component {
   }
 
   timeHandler = () => {
-    console.log(this.state.lunchTime);
-    // this.props.timeCallback(this.state.lunchTime)
+    this.props.setFilterTime(this.state.lunchTime);
+    this.props.navigator.push({
+      screen: "lunch-crunch.RestaurantScreen",
+    });
+    // console.log(this.state.lunchTime); //number
+    //this.props.timeSelectedCallback(this.state.lunchTime)
   }
 
   render () {
 
     const pickerTime = () => {
-      let pickerArray = []
+      let pickerArray = [];
       for(let i = 15 ; i < 61 ; i+=5) {
-        pickerArray.push(<Picker.Item label={`${i}`} value={i} />)
+        pickerArray.push(<Picker.Item label={`${i}`} value={i} />);
       }
-      return pickerArray
+      return pickerArray;
     }
 
     return (
@@ -36,7 +43,7 @@ class Filter extends Component {
         </Picker>
         <Button
           style={styles.buttonStyle}
-          onPress={() => this.timeHandler()}
+          onPress={this.timeHandler}
         >
           Select
         </Button>
@@ -75,4 +82,12 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Filter;
+Filter.propTypes = {
+  timeSelectedCallback: PropTypes.func
+}
+
+const mapStateToProps = _ => {
+  return {};
+}
+
+export default connect(mapStateToProps, { setFilterTime })(Filter);

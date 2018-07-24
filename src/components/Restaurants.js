@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { fetchRestaurantAPI } from '../actions';
 import { connect } from 'react-redux';
 
@@ -33,7 +33,7 @@ class Restaurants extends Component {
       return alert(`Please provide a restaurant name`)
     } else {
       const searchRest = this.props.restaurants.find(place => {
-        return place.name.toLowerCase() === name.toLowerCase();
+        return place.name.toLowerCase().includes(name.toLowerCase());
       });
 
       if (searchRest === undefined) {
@@ -51,6 +51,10 @@ class Restaurants extends Component {
     }
   }
 
+  restaurantFilter = () => {
+
+  }
+
   render() {
 
     return (
@@ -58,6 +62,7 @@ class Restaurants extends Component {
         <View style={styles.searchContainer}>
           <Search itemSelectedCallback={this.itemSearchedHandler}/>
         </View>
+        <Text style={styles.filterText}>Time: {this.props.filter.time} &lt;--</Text>
         <View>
           <RestaurantList
             restaurants={this.props.restaurants}
@@ -76,6 +81,10 @@ const styles = {
   },
   searchContainer: {
     height: '15%'
+  },
+  filterText: {
+    backgroundColor: 'white',
+    color: 'black'
   }
 }
 
@@ -86,7 +95,10 @@ Restaurants.propTypes = {
 }
 
 const mapStateToProps = state => {
-  return { restaurants: state.restaurants.data }
+  return {
+    restaurants: state.restaurants,
+    filter: state.filter
+  };
 };
 
 export default connect(mapStateToProps, { fetchRestaurantAPI })(Restaurants);

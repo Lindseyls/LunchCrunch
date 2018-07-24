@@ -11,7 +11,7 @@ export const fetchRestaurantAPI = () => {
     axios.get(YELP_URL)
       // .then(response => {console.log(response.data); return response})
       .then(response => {
-        dispatch(getRestaurantsSuccess(response))
+        dispatch(getRestaurantsSuccess(response.data))
       })
       .catch(error => {
         dispatch(getRestaurantsFailure(error));

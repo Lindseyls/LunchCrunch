@@ -1,6 +1,7 @@
 import { Navigation } from 'react-native-navigation';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'remote-redux-devtools';
 import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 
@@ -10,7 +11,9 @@ import RestaurantDetailScreen from './components/RestaurantDetail';
 import MapScreen from './components/Map';
 import FilterScreen from './components/Filter';
 
-const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+const store = createStore(reducers, {}, composeWithDevTools(
+  applyMiddleware(ReduxThunk)
+));
 
 Navigation.registerComponent("lunch-crunch.HomeScreen", () => HomeScreen, store, Provider);
 Navigation.registerComponent("lunch-crunch.RestaurantScreen", () => RestaurantScreen, store, Provider);

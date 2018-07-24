@@ -1,5 +1,5 @@
 import {fetchRestaurantAPI} from './RestaurantActions';
-import {selectRestaurant} from './SelectAction';
+import {setFilterTime} from './FilterActions';
 
 export {fetchRestaurantAPI}
-export {selectRestaurant}
+export {setFilterTime}
