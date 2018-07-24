@@ -1,7 +1,7 @@
 import { FETCH_RESTAURANTS_SUCCESS, FETCHING_RESTAURANTS, FETCH_RESTAURANTS_FAILURE } from './constants';
 import axios from 'axios';
 
-const YELP_URL = 'http://localhost:3000/restaurants'
+const YELP_URL = 'https://lunch-crunch-api.herokuapp.com/restaurants'
 
 export const fetchRestaurantAPI = () => {
 
