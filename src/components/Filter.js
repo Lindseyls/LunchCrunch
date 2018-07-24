@@ -7,7 +7,7 @@ class Filter extends Component {
     lunchTime: 0
   }
 
-  searchHandler = () => {
+  timeHandler = () => {
     console.log(this.state.lunchTime);
     // this.props.timeCallback(this.state.lunchTime)
   }
@@ -16,7 +16,7 @@ class Filter extends Component {
 
     const pickerTime = () => {
       let pickerArray = []
-      for(let i = 5 ; i < 61 ; i+=5) {
+      for(let i = 15 ; i < 61 ; i+=5) {
         pickerArray.push(<Picker.Item label={`${i}`} value={i} />)
       }
       return pickerArray
@@ -36,7 +36,7 @@ class Filter extends Component {
         </Picker>
         <Button
           style={styles.buttonStyle}
-          onPress={() => this.searchHandler()}
+          onPress={() => this.timeHandler()}
         >
           Select
         </Button>

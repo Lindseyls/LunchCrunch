@@ -24,7 +24,7 @@ class SearchBar extends Component {
         <TextInput
           clearButtonMode="always"
           style={styles.textInput}
-          placeholder="Find your lunch in a crunch"
+          placeholder="Find your lunch in a crunch!"
           value = {this.state.restaurantName}
           onChangeText={this.placeNameChangedHandler}
         />
