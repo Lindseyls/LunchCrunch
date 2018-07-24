@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { View, Text, Picker, StyleSheet } from 'react-native'
+import Button from 'react-native-button'
 
 class Filter extends Component {
   state = {
     lunchTime: 0
+  }
+
+  searchHandler = () => {
+    console.log(this.state.lunchTime);
+    // this.props.timeCallback(this.state.lunchTime)
   }
 
   render () {
@@ -15,7 +21,6 @@ class Filter extends Component {
       }
       return pickerArray
     }
-
 
     return (
       <View style={styles.container}>
@@ -29,6 +34,12 @@ class Filter extends Component {
         >
           {pickerTime()}
         </Picker>
+        <Button
+          style={styles.buttonStyle}
+          onPress={() => this.searchHandler()}
+        >
+          Select
+        </Button>
       </View>
     );
   }
@@ -43,11 +54,24 @@ const styles = StyleSheet.create({
   },
   message: {
     fontSize: 21,
+    color: '#414B6B',
     textAlign: 'center',
     margin: 10
   },
   pickerContainer: {
     width: '100%'
+  },
+  buttonStyle: {
+    padding: 10,
+    paddingRight: 40,
+    paddingLeft: 40,
+    height: 40,
+    color: 'white',
+    overflow:'hidden',
+    borderColor: '#414B6B',
+    borderWidth: 1,
+    borderRadius: 5,
+    backgroundColor: '#414B6B',
   }
 });
 

@@ -54,7 +54,16 @@ const styles = {
     alignSelf: 'center',
   },
   buttonStyle: {
+    padding: 10,
+    height: 40,
+    marginLeft: 20,
+    marginRight: 20,
     color: '#414B6B',
+    overflow:'hidden',
+    borderColor: '#414B6B',
+    borderWidth: 0.3,
+    borderRadius: 5,
+    // backgroundColor: '#BEC9D1'
   }
 }
 
