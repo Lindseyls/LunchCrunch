@@ -16,7 +16,7 @@ class Restaurants extends Component {
     const selRest = this.props.restaurants.find(place => {
       return place.id === id;
     });
-    if (selRest === undefined || null) {
+    if (selRest === undefined) {
       return alert(`No restaurant found with id: ${id}`)
     }
     this.props.navigator.push({
@@ -29,19 +29,26 @@ class Restaurants extends Component {
   }
 
   itemSearchedHandler = name => {
-    const searchRest = this.props.restaurants.find(place => {
-      return place.name === name;
-    });
-    if (searchRest === undefined || null) {
-      return alert(`No restaurant found with name: ${name}`)
-    }
-    this.props.navigator.push({
-      screen: "lunch-crunch.RestaurantDetail",
-      title: searchRest.name,
-      passProps: {
-        restaurantData: searchRest
+    if (name === "") {
+      return alert(`Please provide a restaurant name`)
+    } else {
+      const searchRest = this.props.restaurants.find(place => {
+        return place.name.toLowerCase() === name.toLowerCase();
+      });
+
+      if (searchRest === undefined) {
+        return alert(`No restaurant found with name: ${name}`)
       }
-    })
+
+      this.props.navigator.push({
+        screen: "lunch-crunch.RestaurantDetail",
+        title: searchRest.name,
+        passProps: {
+          restaurantData: searchRest
+        }
+      })
+
+    }
   }
 
   render() {

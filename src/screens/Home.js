@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Image, Button } from 'react-native';
+import { View, Image } from 'react-native';
+import Button from 'react-native-button';
 
 import startMainTabs from './startMainTabs';
 import logo from './../img/clock.png';
@@ -19,7 +20,10 @@ class HomeScreen extends Component {
           />
         </View>
         <View>
-          <Button title="Let's Get Started!" onPress={this.loginHandler} />
+          <Button
+            style={styles.buttonStyle}
+            onPress={this.loginHandler}
+          >Find your Lunch in a Crunch!</Button>
         </View>
         <View>
           <Image
@@ -48,6 +52,9 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
+  },
+  buttonStyle: {
+    color: '#414B6B',
   }
 }
 
