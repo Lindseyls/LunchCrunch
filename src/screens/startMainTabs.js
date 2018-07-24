@@ -9,12 +9,12 @@ const startTabs = () => {
   ]).then(sources => {
     Navigation.startTabBasedApp({
       tabs:[
-        // {
-        //   screen: "lunch-crunch.SearchScreen",
-        //   label: "Search",
-        //   title: "Search",
-        //   icon: sources[0]
-        // },
+        {
+          screen: "lunch-crunch.FilterScreen",
+          label: "Filter",
+          // title: "Search",
+          icon: sources[0]
+        },
         {
           screen: "lunch-crunch.RestaurantScreen",
           label: "Restaurants",
