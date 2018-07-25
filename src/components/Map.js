@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
-import { View, Image, Button, StyleSheet, Text, Dimensions } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, Button, StyleSheet, Text, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import { fetchRestaurantAPI } from '../actions';
+import { connect } from 'react-redux';
+
+import MapRestList from './MapRestList';
 
 class Map extends Component {
+  componentDidMount() {
+    this.props.fetchRestaurantAPI()
+  }
+
   state = {
     focusedLocation: {
       latitude: 47.607617,
@@ -53,6 +62,12 @@ class Map extends Component {
     })
   }
 
+  renderMarkers() {
+		return this.props.restaurants.map((place, i) => (
+			<MapRestList  key={i} restaurant={place}/>
+		));
+	}
+
   render () {
     let marker = null;
 
@@ -74,6 +89,7 @@ class Map extends Component {
           ref={ref => this.map = ref}
         >
           {marker}
+          {this.renderMarkers()}
         </MapView>
         <View style={styles.button}>
           <Button title="Locate Me" onPress={this.getLocationHandler} />
@@ -117,5 +133,14 @@ const styles = StyleSheet.create({
   }
 });
 
+Map.propTypes = {
+  fetchRestaurantAPI: PropTypes.func
+}
 
-export default Map;
+const mapStateToProps = state => {
+  return { restaurants: state.restaurants }
+}
+
+export default connect(mapStateToProps, { fetchRestaurantAPI })(Map);
+
+// export default Map;
