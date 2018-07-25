@@ -5,7 +5,7 @@ import Button from 'react-native-button'
 import { setFilterTime } from '../actions';
 import { connect } from 'react-redux';
 
-class Filter extends Component {
+class TimeFilter extends Component {
   state = {
     lunchTime: null
   }
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   }
 });
 
-Filter.propTypes = {
+TimeFilter.propTypes = {
   timeSelectedCallback: PropTypes.func,
   setFilterTime: PropTypes.func,
   navigator: PropTypes.object,
@@ -94,4 +94,4 @@ const mapStateToProps = _ => {
   return {};
 }
 
-export default connect(mapStateToProps, { setFilterTime })(Filter);
+export default connect(mapStateToProps, { setFilterTime })(TimeFilter);

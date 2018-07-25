@@ -25,8 +25,8 @@ class MapCallout extends Component {
 
 const styles = {
   thumbnailStyle: {
-    height: 55,
-    width: 55,
+    height: 70,
+    width: 70,
     justifyContent: 'center',
     alignItems: 'center',
   },

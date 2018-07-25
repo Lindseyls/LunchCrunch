@@ -10,7 +10,7 @@ const startTabs = () => {
     Navigation.startTabBasedApp({
       tabs:[
         {
-          screen: "lunch-crunch.FilterScreen",
+          screen: "lunch-crunch.TimeFilterScreen",
           label: "Filter",
           // title: "Search",
           icon: sources[0]

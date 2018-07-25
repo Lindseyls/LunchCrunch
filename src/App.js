@@ -9,7 +9,7 @@ import HomeScreen from './screens/Home';
 import RestaurantScreen from './components/Restaurants';
 import RestaurantDetailScreen from './components/RestaurantDetail';
 import MapScreen from './components/Map';
-import FilterScreen from './components/Filter';
+import TimeFilterScreen from './components/TimeFilter';
 
 const store = createStore(reducers, {}, composeWithDevTools(
   applyMiddleware(ReduxThunk)
@@ -19,7 +19,7 @@ Navigation.registerComponent("lunch-crunch.HomeScreen", () => HomeScreen, store,
 Navigation.registerComponent("lunch-crunch.RestaurantScreen", () => RestaurantScreen, store, Provider);
 Navigation.registerComponent("lunch-crunch.RestaurantDetail", () => RestaurantDetailScreen)
 Navigation.registerComponent("lunch-crunch.MapScreen", () => MapScreen, store, Provider);
-Navigation.registerComponent("lunch-crunch.FilterScreen", () => FilterScreen, store, Provider);
+Navigation.registerComponent("lunch-crunch.TimeFilterScreen", () => TimeFilterScreen, store, Provider);
 
 Navigation.startSingleScreenApp({
   screen: {

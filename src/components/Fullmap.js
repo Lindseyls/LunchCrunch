@@ -1,55 +1,44 @@
 import React, { Component } from 'react';
-import { organizationFetch } from '../actions';
-import { connect } from 'react-redux';
 import { Text, TouchableWithoutFeedback, View } from 'react-native';
-import { CapitalizedText, CardSection, MapCallout } from './common';
-import { MapView } from 'expo';
+import MapView, { Marker } from 'react-native-maps';
+
+import MapCallout from './common/MapCallout';
 
 class Fullmap extends Component {
 
-  componentDidMount() {
-    this.props.organizationFetch(this.props.ein)
-  }
-
   render() {
-    const props = this.props.organization
-    const { charityName, street, ein} = this.props.organization;
+    const props = this.props.restaurants
+    const { name, image_url, location } = this.props.restaurants;
     return (
       <MapView
-
-      style={ styles.map }
-      initialRegion={{
-        latitude: this.props.organization.latitude,
-        longitude: this.props.organization.longitude,
-        latitudeDelta: 0.0992,
-        longitudeDelta: 0.0421
-      }}
-      region={{
-        latitude: this.props.organization.latitude,
-        longitude: this.props.organization.longitude,
-        latitudeDelta: 0.0992,
-        longitudeDelta: 0.0421
-      }}
+        style={styles.map}
+        initialRegion={{
+          latitude: this.props.restaurants.latitude,
+          longitude: this.props.restaurants.longitude,
+          latitudeDelta: 0.0992,
+          longitudeDelta: 0.0421
+        }}
+        region={{
+          latitude: this.props.restaurants.latitude,
+          longitude: this.props.restaurants.longitude,
+          latitudeDelta: 0.0992,
+          longitudeDelta: 0.0421
+        }}
       >
-
-      <MapView.Marker
-      coordinate={{
-        latitude: this.props.organization.latitude, longitude: this.props.organization.longitude
-      }}
-      >
-        <MapView.Callout>
-          <MapCallout
-            street={street}
-            city={props.city}
-            state={props.state}
-            zipCode={props.zipCode}
-            latitude={props.latitude}
-            longitude={props.longitude}
-            charityName={props.charityName}
-          />
-        </MapView.Callout>
-
-      </MapView.Marker>
+        <Marker
+          coordinate={{
+            latitude: this.props.restaurants.latitude,
+            longitude: this.props.restaurants.longitude
+          }}
+        >
+          <MapView.Callout>
+            <MapCallout
+            name={name}
+            image={image_url}
+            location={location}
+            />
+          </MapView.Callout>
+        </Marker>
       </MapView>
     );
   }
@@ -80,9 +69,4 @@ const styles = {
   }
 }
 
-
-const mapStateToProps = (state, ownProps) => {
-  return { organization: state.organization }
-}
-
-export default connect(mapStateToProps, {organizationFetch})(Fullmap);
+export default Fullmap;

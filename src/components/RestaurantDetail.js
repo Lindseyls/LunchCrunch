@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mapStyle: {
-    flex: 1
+    // flex: 1,
+    height: 200
   }
 });
 
