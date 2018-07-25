@@ -29,24 +29,39 @@ class Restaurants extends Component {
   }
 
   itemSearchedHandler = name => {
+    let restaurantSearchArray = []
+
+
     if (name === "") {
       return alert(`Please provide a restaurant name`)
     } else {
-      const searchRest = this.props.restaurants.find(place => {
-        return place.name.toLowerCase().includes(name.toLowerCase());
+      this.props.restaurants.find(place => {
+        if (place.name.toLowerCase().includes(name.toLowerCase())){
+          restaurantSearchArray.push(place)
+        }
       });
 
-      if (searchRest === undefined) {
+      if (restaurantSearchArray === undefined || restaurantSearchArray.length == 0) {
         return alert(`No restaurant found with name: ${name}`)
       }
 
-      this.props.navigator.push({
-        screen: "lunch-crunch.RestaurantDetail",
-        title: searchRest.name,
-        passProps: {
-          restaurantData: searchRest
-        }
-      })
+      console.log(restaurantSearchArray);
+      return restaurantSearchArray
+      // return (
+      //   <RestaurantList
+      //   restaurants={restaurantSearchArray}
+      //   onItemSelected={this.itemSelectedHandler}
+      //   />
+      // )
+
+
+      // this.props.navigator.push({
+      //   screen: "lunch-crunch.RestaurantDetail",
+      //   title: searchRest.name,
+      //   passProps: {
+      //     restaurantData: searchRest
+      //   }
+      // })
     }
   }
 
@@ -55,7 +70,12 @@ class Restaurants extends Component {
     let filterRestArray = [];
 
     if (time === null) {
-      return this.props.restaurants
+      return (
+        <RestaurantList
+          restaurants={this.props.restaurants}
+          onItemSelected={this.itemSelectedHandler}
+        />
+      )
     }
 
     this.props.restaurants.find(place => {
@@ -64,7 +84,12 @@ class Restaurants extends Component {
       }
     });
 
-    return filterRestArray
+    return (
+      <RestaurantList
+        restaurants={filterRestArray}
+        onItemSelected={this.itemSelectedHandler}
+      />
+    )
   }
 
   findAverage = (popular_times) => {
@@ -83,6 +108,17 @@ class Restaurants extends Component {
     return (avg).toFixed(0);
   }
 
+  timeDisplayBar = () => {
+    // <Text style={styles.filterText}>Time: {this.props.filter.time} &lt;--</Text>
+    let time = this.props.filter.time;
+
+    if (time === null || time === 'No Crunch Time') {
+      return <Text style={styles.filterText}>Lucky! You have no crunch time!</Text>
+    }
+
+    return <Text style={styles.filterText}>You have {this.props.filter.time} min to find lunch...</Text>
+  }
+
 
   render() {
 
@@ -91,12 +127,11 @@ class Restaurants extends Component {
         <View style={styles.searchContainer}>
           <Search itemSelectedCallback={this.itemSearchedHandler}/>
         </View>
-        <Text style={styles.filterText}>Time: {this.props.filter.time} &lt;--</Text>
         <View>
-          <RestaurantList
-            restaurants={this.restaurantFilter()}
-            onItemSelected={this.itemSelectedHandler}
-          />
+          {this.timeDisplayBar()}
+        </View>
+        <View>
+          {this.restaurantFilter()}
         </View>
       </View>
     );
@@ -113,7 +148,9 @@ const styles = {
   },
   filterText: {
     backgroundColor: 'white',
-    color: 'black'
+    color: '#414B6B',
+    fontSize: 17,
+    textAlign: 'center',
   }
 }
 

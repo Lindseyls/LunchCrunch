@@ -27,7 +27,7 @@ class TotalTime extends Component {
         <View>
           <FlatList
             data={times}
-            listKey={(item, index) => 'D' + index.toString()}
+            listKey={(item, index) => 'T' + index.toString()}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) =>
             <Text>
