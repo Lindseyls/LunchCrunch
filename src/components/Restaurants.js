@@ -12,10 +12,6 @@ class Restaurants extends Component {
     this.props.fetchRestaurantAPI()
   }
 
-  componentWillUnmount() {
-    this.props.fetchRestaurantAPI()
-  }
-
   itemSelectedHandler = id => {
     const selRest = this.props.restaurants.find(place => {
       return place.id === id;
