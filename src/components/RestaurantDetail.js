@@ -18,8 +18,8 @@ class SelectedRestaurantDetail extends Component {
           <MapViewSection restaurant={restaurant} />
         </View>
         <View style={styles.contactStyle}>
-          <Text>{ location[0] },</Text>
-          <Text>{ location[1] }</Text>
+          <Text style={styles.fontSize}>{ location[0] },</Text>
+          <Text style={styles.fontSize}>{ location[1] }</Text>
           <Text>{ display_phone }</Text>
         </View>
         <View style={styles.yelpInfo}>
@@ -48,11 +48,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 200,
   },
+  textSize: {
+    fontSize: 35,
+    fontWeight: 'bold'
+  },
   yelpInfo: {
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingTop: 50,
+    margin: 5
   }
 });
 

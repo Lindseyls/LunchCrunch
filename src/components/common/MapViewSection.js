@@ -18,11 +18,11 @@ class MapViewSection extends Component {
             initialRegion={{
               latitude: parseFloat(latitude),
               longitude: parseFloat(longitude),
-              latitudeDelta: 0.0089,
+              latitudeDelta: 0.0100,
               longitudeDelta:
                 Dimensions.get("window").width /
                 Dimensions.get("window").height *
-                0.0089
+                0.0100
             }}
           >
             <Marker
@@ -60,7 +60,7 @@ const styles = {
     borderColor: '#414B6B',
     borderWidth: 1,
     borderRadius: 5,
-    top: 20
+    top: 21
   }
 }
 
