@@ -28,6 +28,28 @@ class Restaurants extends Component {
     })
   }
 
+  // itemSearchedHandler = name => {
+  //   if (name === "") {
+  //     return alert(`Please provide a restaurant name`)
+  //   } else {
+  //     const searchRest = this.props.restaurants.find(place => {
+  //       return place.name.toLowerCase().includes(name.toLowerCase());
+  //     });
+  //
+  //     if (searchRest === undefined) {
+  //       return alert(`No restaurant found with name: ${name}`)
+  //     }
+  //
+  //     this.props.navigator.push({
+  //       screen: "lunch-crunch.RestaurantDetail",
+  //       title: searchRest.name,
+  //       passProps: {
+  //         restaurantData: searchRest
+  //       }
+  //     })
+  //   }
+  // }
+
   itemSearchedHandler = name => {
     let restaurantSearchArray = []
 

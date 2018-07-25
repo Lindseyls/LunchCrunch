@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 });
 
 SelectedRestaurantDetail.propTypes = {
-  restaurantData: PropTypes.object.isRequired,
+  restaurantData: PropTypes.object,
 }
 
 export default SelectedRestaurantDetail;

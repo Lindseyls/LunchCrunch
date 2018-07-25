@@ -16,8 +16,8 @@ class MapViewSection extends Component {
           <MapView
             style={styles.map}
             initialRegion={{
-              latitude: latitude,
-              longitude: longitude,
+              latitude: parseFloat(latitude),
+              longitude: parseFloat(longitude),
               latitudeDelta: 0.0122,
               longitudeDelta:
                 Dimensions.get("window").width /
@@ -27,7 +27,8 @@ class MapViewSection extends Component {
           >
             <Marker
               coordinate={{
-                latitude: latitude, longitude: longitude
+                latitude: parseFloat(latitude),
+                longitude: parseFloat(longitude)
               }}
             >
               <MapView.Callout>
@@ -61,7 +62,7 @@ const styles = {
 }
 
 MapViewSection.propTypes = {
-  restaurant: PropTypes.object.isRequired,
+  restaurant: PropTypes.object,
 }
 
 export default MapViewSection;
