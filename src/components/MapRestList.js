@@ -45,7 +45,7 @@ const styles = {
 }
 
 MapRestList.propTypes = {
-  restaurant: PropTypes.array,
+  restaurant: PropTypes.object,
 }
 
 export default MapRestList;
