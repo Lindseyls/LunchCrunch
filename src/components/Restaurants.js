@@ -51,40 +51,29 @@ class Restaurants extends Component {
   }
 
   restaurantFilter = () => {
-    // console.log(this.props.restaurants);
-
     let time = this.props.filter.time;
     let filterRestArray = [];
 
     if (time === null) {
-      return (
-        <RestaurantList
-          restaurants={this.props.restaurants}
-          onItemSelected={this.itemSelectedHandler}
-        />
-      )
-    } else {
-      this.props.restaurants.find(place => {
-        if(this.findAverage(place.popular_times) < time) {
-          filterRestArray.push(place)
-        }
-      });
-
-      return (
-        <RestaurantList
-          restaurants={filterRestArray}
-          onItemSelected={this.itemSelectedHandler}
-        />
-      )
-
-      // console.log('filter:'+filterRestArray);
-      // return filterRestArray
+      return this.props.restaurants
     }
+
+    this.props.restaurants.find(place => {
+      if(this.findAverage(place.popular_times) < time) {
+        filterRestArray.push(place)
+      }
+    });
+
+    return filterRestArray
   }
 
   findAverage = (popular_times) => {
     let total = 0;
     let length = popular_times.length
+
+    if (length === 0) {
+      return total
+    }
 
     for (let i = 0; i < length; i++) {
       total += popular_times[i].total_time_spent;
@@ -104,7 +93,10 @@ class Restaurants extends Component {
         </View>
         <Text style={styles.filterText}>Time: {this.props.filter.time} &lt;--</Text>
         <View>
-          {this.restaurantFilter()}
+          <RestaurantList
+            restaurants={this.restaurantFilter()}
+            onItemSelected={this.itemSelectedHandler}
+          />
         </View>
       </View>
     );

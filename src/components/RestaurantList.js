@@ -12,7 +12,7 @@ class RestaurantList extends Component {
     return (
       <FlatList
         data={restaurants}
-        keyExtractor={(restaurant, index) => restaurant.id.toString()}
+        keyExtractor={(restaurant) => restaurant.id.toString()}
         renderItem={(restaurant) =>
           <RestaurantDisplay
             restaurantData={restaurant.item}

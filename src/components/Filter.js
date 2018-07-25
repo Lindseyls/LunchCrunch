@@ -25,8 +25,10 @@ class Filter extends Component {
       for(let i = 15 ; i < 61 ; i+=5) {
         pickerArray.push(<Picker.Item key={i} label={`${i}`} value={i} />);
       }
+
       return pickerArray;
     }
+
 
     return (
       <View style={styles.container}>
@@ -38,6 +40,7 @@ class Filter extends Component {
           selectedValue={this.state.lunchTime}
           onValueChange={(lunchTime) => this.setState({ lunchTime })}
         >
+          <Picker.Item key={11} label={`${'No Crunch Time'}`} value={'No Crunch Time'} />
           {pickerTime()}
         </Picker>
         <Button
