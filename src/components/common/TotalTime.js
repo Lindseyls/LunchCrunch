@@ -28,6 +28,7 @@ class TotalTime extends Component {
           <FlatList
             data={times}
             listKey={(item, index) => 'D' + index.toString()}
+            keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) =>
             <Text>
               Total Time: <Text style={styles.timeStyle}>{item.total_time_spent} min</Text>

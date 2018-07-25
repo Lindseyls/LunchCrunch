@@ -3,20 +3,19 @@ import PropTypes from 'prop-types';
 import { View, Text, Picker, StyleSheet } from 'react-native'
 import Button from 'react-native-button'
 import { setFilterTime } from '../actions';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class Filter extends Component {
   state = {
-    lunchTime: 0
+    lunchTime: null
   }
 
   timeHandler = () => {
     this.props.setFilterTime(this.state.lunchTime);
     this.props.navigator.push({
       screen: "lunch-crunch.RestaurantScreen",
+      title: "Restaurants"
     });
-    // console.log(this.state.lunchTime); //number
-    //this.props.timeSelectedCallback(this.state.lunchTime)
   }
 
   render () {
@@ -24,7 +23,7 @@ class Filter extends Component {
     const pickerTime = () => {
       let pickerArray = [];
       for(let i = 15 ; i < 61 ; i+=5) {
-        pickerArray.push(<Picker.Item label={`${i}`} value={i} />);
+        pickerArray.push(<Picker.Item key={i} label={`${i}`} value={i} />);
       }
       return pickerArray;
     }
@@ -83,7 +82,9 @@ const styles = StyleSheet.create({
 });
 
 Filter.propTypes = {
-  timeSelectedCallback: PropTypes.func
+  timeSelectedCallback: PropTypes.func,
+  setFilterTime: PropTypes.func,
+  navigator: PropTypes.object,
 }
 
 const mapStateToProps = _ => {

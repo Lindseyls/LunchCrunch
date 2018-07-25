@@ -7,8 +7,6 @@ import {
   StyleSheet,
   TouchableWithoutFeedback
 } from 'react-native';
-// import { connect } from 'react-redux';
-// import * as actions from '../actions';
 
 import Card from './common/Card';
 import CardSection from './common/CardSection';
@@ -78,14 +76,6 @@ const styles = StyleSheet.create({
 RestaurantDisplay.propTypes = {
   restaurantData: PropTypes.object.isRequired,
   onItemPressed: PropTypes.func
-  // expanded: PropTypes.bool
 }
-
-// const mapStateToProps = (state, ownProps) => {
-//   const expanded = state.selectedRestaurantId === ownProps.restaurantData.yelp_id
-//   return { expanded }
-// };
-//
-// export default connect(mapStateToProps, actions)(RestaurantDisplay);
 
 export default RestaurantDisplay;

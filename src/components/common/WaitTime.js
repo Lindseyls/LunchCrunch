@@ -27,7 +27,8 @@ class WaitTime extends Component {
         <View>
           <FlatList
             data={times}
-            listKey={(item, index) => 'D' + index.toString()}
+            listKey={(item, index) => 'W' + index.toString()}
+            keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) =>
             <Text>
               Wait Time: <Text style={styles.timeStyle}>{item.wait_time} min</Text>
