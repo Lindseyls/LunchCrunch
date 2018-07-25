@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Text, TouchableWithoutFeedback, View } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
 import MapCallout from './common/MapCallout';
@@ -8,12 +8,11 @@ import MapCallout from './common/MapCallout';
 class MapRestList extends Component {
 
   render() {
-    const { name, image_url, location, latitude, longitude } = this.props.restaurant;
+    const { name, image_url, location, latitude, longitude, popular_times } = this.props.restaurant;
 
     return (
       <TouchableWithoutFeedback>
         <Marker
-          style={styles.marker}
           coordinate={{
             latitude: parseFloat(latitude),
             longitude: parseFloat(longitude)
@@ -24,6 +23,7 @@ class MapRestList extends Component {
             name={name}
             image={image_url}
             location={location}
+            popular_times={popular_times}
             />
           </MapView.Callout>
         </Marker>
@@ -32,20 +32,8 @@ class MapRestList extends Component {
   }
 }
 
-const styles = {
-  marker: {
-    height: 20,
-    width: 20,
-    borderWidth: 3,
-    borderColor: 'white',
-    borderRadius: 20 / 2,
-    overflow: 'hidden',
-    backgroundColor: '#007AFF'
-  }
-}
-
 MapRestList.propTypes = {
-  restaurant: PropTypes.object,
+  restaurant: PropTypes.object
 }
 
 export default MapRestList;

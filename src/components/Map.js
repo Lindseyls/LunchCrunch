@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Button, StyleSheet, Text, Dimensions } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import Button from 'react-native-button'
 import MapView, { Marker } from 'react-native-maps';
 import { fetchRestaurantAPI } from '../actions';
 import { connect } from 'react-redux';
@@ -12,15 +13,19 @@ class Map extends Component {
     this.props.fetchRestaurantAPI()
   }
 
+  componentWillUnmount() {
+    this.props.fetchRestaurantAPI()
+  }
+
   state = {
     focusedLocation: {
       latitude: 47.607617,
       longitude: -122.3347883,
-      latitudeDelta: 0.0122,
+      latitudeDelta: 0.0089,
       longitudeDelta:
         Dimensions.get("window").width /
         Dimensions.get("window").height *
-        0.0122
+        0.0089
     },
     locationChosen: false
   };
@@ -92,7 +97,12 @@ class Map extends Component {
           {this.renderMarkers()}
         </MapView>
         <View style={styles.button}>
-          <Button title="Locate Me" onPress={this.getLocationHandler} />
+          <Button
+            style={styles.buttonStyle}
+            onPress={this.getLocationHandler}
+          >
+            Locate Me
+          </Button>
         </View>
       </View>
     );
@@ -101,8 +111,9 @@ class Map extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    alignItems: "center"
+    flex: 1,
+    alignItems: "center",
+    backgroundColor: '#FACDC2'
   },
   map: {
     width: "100%",
@@ -130,11 +141,25 @@ const styles = StyleSheet.create({
     borderRadius: 20 / 2,
     overflow: 'hidden',
     backgroundColor: '#007AFF'
+  },
+  buttonStyle: {
+    padding: 10,
+    paddingRight: 40,
+    paddingLeft: 40,
+    marginTop: 21,
+    height: 40,
+    color: 'white',
+    overflow:'hidden',
+    borderColor: '#414B6B',
+    borderWidth: 1,
+    borderRadius: 5,
+    backgroundColor: '#414B6B',
   }
 });
 
 Map.propTypes = {
-  fetchRestaurantAPI: PropTypes.func
+  fetchRestaurantAPI: PropTypes.func,
+  restaurants: PropTypes.array
 }
 
 const mapStateToProps = state => {

@@ -1,51 +1,58 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, Linking, TouchableHighlight } from 'react-native';
 
 import Stars from './common/Stars';
-import WaitTime from './common/WaitTime';
-import TotalTime from './common/TotalTime';
 import MapViewSection from './common/MapViewSection';
+import yelplogo from '../img/yelp_review.png';
 
 class SelectedRestaurantDetail extends Component {
 
   render() {
     const restaurant = this.props.restaurantData
-    const { name, rating, review_count, image_url, popular_times } = this.props.restaurantData;
+    const { rating, review_count, yelp_url, location, display_phone } = this.props.restaurantData;
 
     return (
-      <ScrollView>
-        <View style={styles.thumbnailContainerStyle}>
-          <Image
-            style={styles.imageStyle}
-            source={{ uri: image_url }}
-          />
-        </View>
-        <View style={styles.mapStyle}>
+      <View style={styles.contentStyle}>
+        <View>
           <MapViewSection restaurant={restaurant} />
         </View>
-        <View style={styles.contentStyle}>
-          <Text style={styles.headerTextStyle}>{name}</Text>
+        <View style={styles.contactStyle}>
+          <Text>{ location[0] },</Text>
+          <Text>{ location[1] }</Text>
+          <Text>{ display_phone }</Text>
+        </View>
+        <View style={styles.yelpInfo}>
           <Stars votes={rating} />
           <Text style={styles.reviewCountStyle}>{review_count} reviews</Text>
-          <WaitTime times={popular_times} />
-          <TotalTime times={popular_times} />
+        <TouchableHighlight onPress={() => Linking.openURL(`${yelp_url}`)}>
+          <Image
+            style={styles.thumbnailStyle}
+            source={ yelplogo }
+          />
+        </TouchableHighlight>
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  imageStyle: {
-    height: 150,
-    width: "100%",
-    justifyContent: 'center',
-    alignItems: 'center',
+  contentStyle: {
+    flex: 1,
+    backgroundColor: '#FACDC2',
   },
-  mapStyle: {
-    // flex: 1,
-    height: 200
+  contactStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    paddingTop: 200,
+  },
+  yelpInfo: {
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    paddingTop: 50,
   }
 });
 

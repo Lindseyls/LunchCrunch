@@ -12,6 +12,10 @@ class Restaurants extends Component {
     this.props.fetchRestaurantAPI()
   }
 
+  componentWillUnmount() {
+    this.props.fetchRestaurantAPI()
+  }
+
   itemSelectedHandler = id => {
     const selRest = this.props.restaurants.find(place => {
       return place.id === id;
@@ -28,64 +32,64 @@ class Restaurants extends Component {
     })
   }
 
-  // itemSearchedHandler = name => {
-  //   if (name === "") {
-  //     return alert(`Please provide a restaurant name`)
-  //   } else {
-  //     const searchRest = this.props.restaurants.find(place => {
-  //       return place.name.toLowerCase().includes(name.toLowerCase());
-  //     });
-  //
-  //     if (searchRest === undefined) {
-  //       return alert(`No restaurant found with name: ${name}`)
-  //     }
-  //
-  //     this.props.navigator.push({
-  //       screen: "lunch-crunch.RestaurantDetail",
-  //       title: searchRest.name,
-  //       passProps: {
-  //         restaurantData: searchRest
-  //       }
-  //     })
-  //   }
-  // }
-
   itemSearchedHandler = name => {
-    let restaurantSearchArray = []
-
-
     if (name === "") {
       return alert(`Please provide a restaurant name`)
     } else {
-      this.props.restaurants.find(place => {
-        if (place.name.toLowerCase().includes(name.toLowerCase())){
-          restaurantSearchArray.push(place)
-        }
+      const searchRest = this.props.restaurants.find(place => {
+        return place.name.toLowerCase().includes(name.toLowerCase());
       });
 
-      if (restaurantSearchArray === undefined || restaurantSearchArray.length == 0) {
+      if (searchRest === undefined) {
         return alert(`No restaurant found with name: ${name}`)
       }
 
-      console.log(restaurantSearchArray);
-      return restaurantSearchArray
-      // return (
-      //   <RestaurantList
-      //   restaurants={restaurantSearchArray}
-      //   onItemSelected={this.itemSelectedHandler}
-      //   />
-      // )
-
-
-      // this.props.navigator.push({
-      //   screen: "lunch-crunch.RestaurantDetail",
-      //   title: searchRest.name,
-      //   passProps: {
-      //     restaurantData: searchRest
-      //   }
-      // })
+      this.props.navigator.push({
+        screen: "lunch-crunch.RestaurantDetail",
+        title: searchRest.name,
+        passProps: {
+          restaurantData: searchRest
+        }
+      })
     }
   }
+
+  // itemSearchedHandler = name => {
+  //   let restaurantSearchArray = []
+  //
+  //
+  //   if (name === "") {
+  //     return alert(`Please provide a restaurant name`)
+  //   } else {
+  //     this.props.restaurants.find(place => {
+  //       if (place.name.toLowerCase().includes(name.toLowerCase())){
+  //         restaurantSearchArray.push(place)
+  //       }
+  //     });
+  //
+  //     if (restaurantSearchArray === undefined || restaurantSearchArray.length == 0) {
+  //       return alert(`No restaurant found with name: ${name}`)
+  //     }
+  //
+  //     console.log(restaurantSearchArray);
+  //
+  //     return (
+  //       <RestaurantList
+  //         restaurants={restaurantSearchArray}
+  //         onItemSelected={this.itemSelectedHandler}
+  //       />
+  //     )
+  //
+  //
+  //     // this.props.navigator.push({
+  //     //   screen: "lunch-crunch.RestaurantScreen",
+  //     //   title: "restaurants",
+  //     //   passProps: {
+  //     //     restaurantData: restaurantSearchArray
+  //     //   }
+  //     // })
+  //   }
+  // }
 
   restaurantFilter = () => {
     let time = this.props.filter.time;
@@ -101,7 +105,7 @@ class Restaurants extends Component {
     }
 
     this.props.restaurants.find(place => {
-      if(this.findAverage(place.popular_times) < time) {
+      if(this.findAverage(place.popular_times) <= time) {
         filterRestArray.push(place)
       }
     });

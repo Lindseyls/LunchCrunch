@@ -8,7 +8,7 @@ import MapCallout from './MapCallout';
 class MapViewSection extends Component {
 
   render() {
-    const { latitude, longitude, name, image_url, location } = this.props.restaurant;
+    const { latitude, longitude, popular_times, name, image_url, location } = this.props.restaurant;
 
     return (
       <View style={styles.container}>
@@ -18,11 +18,11 @@ class MapViewSection extends Component {
             initialRegion={{
               latitude: parseFloat(latitude),
               longitude: parseFloat(longitude),
-              latitudeDelta: 0.0122,
+              latitudeDelta: 0.0089,
               longitudeDelta:
                 Dimensions.get("window").width /
                 Dimensions.get("window").height *
-                0.0122
+                0.0089
             }}
           >
             <Marker
@@ -36,6 +36,7 @@ class MapViewSection extends Component {
                 name={name}
                 image={image_url}
                 location={location}
+                popular_times={popular_times}
                 />
               </MapView.Callout>
             </Marker>
@@ -54,10 +55,12 @@ const styles = {
   },
   map: {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    width: "90%",
+    height: 300,
+    borderColor: '#414B6B',
+    borderWidth: 1,
+    borderRadius: 5,
+    top: 20
   }
 }
 
