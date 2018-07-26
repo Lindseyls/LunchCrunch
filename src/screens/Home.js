@@ -52,7 +52,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    bottom:0
+    bottom: 0
   },
   buttonStyle: {
     padding: 10,
