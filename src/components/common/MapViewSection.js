@@ -9,7 +9,7 @@ class MapViewSection extends PureComponent {
 
   render() {
     const { latitude, longitude, popular_times, name, image_url, location } = this.props.restaurant;
-
+    console.log(`Rendering MapViewSection with restauant location: ${latitude}, ${longitude}`)
     return (
       <View style={styles.container}>
         <TouchableWithoutFeedback>
