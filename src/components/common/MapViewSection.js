@@ -14,7 +14,6 @@ class MapViewSection extends PureComponent {
       <View style={styles.container}>
         <TouchableWithoutFeedback>
           <MapView
-            style={styles.map}
             initialRegion={{
               latitude: parseFloat(latitude),
               longitude: parseFloat(longitude),
@@ -24,6 +23,7 @@ class MapViewSection extends PureComponent {
                 Dimensions.get("window").height *
                 0.005
             }}
+            style={styles.map}
           >
             <MapView.Marker
               coordinate={{
