@@ -3,7 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const startTabs = () => {
   Promise.all([
-    Icon.getImageSource("ios-funnel-outline", 30),
+    Icon.getImageSource("ios-clock-outline", 30),
     Icon.getImageSource("ios-list-box-outline", 30),
     Icon.getImageSource("ios-compass-outline", 30)
   ]).then(sources => {
