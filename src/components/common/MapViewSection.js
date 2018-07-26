@@ -5,6 +5,7 @@ import MapView, { Marker } from 'react-native-maps';
 
 import MapCallout from './MapCallout';
 
+
 class MapViewSection extends PureComponent {
 
   render() {
@@ -18,11 +19,11 @@ class MapViewSection extends PureComponent {
             initialRegion={{
               latitude: parseFloat(latitude),
               longitude: parseFloat(longitude),
-              latitudeDelta: 0.0100,
+              latitudeDelta: 0.005,
               longitudeDelta:
                 Dimensions.get("window").width /
                 Dimensions.get("window").height *
-                0.0100
+                0.005
             }}
           >
             <Marker
@@ -55,12 +56,13 @@ const styles = {
   },
   map: {
     position: 'absolute',
-    width: "90%",
-    height: 300,
+    top: 20,
+    left: 0,
+    right: 0,
+    bottom: 0,
     borderColor: '#414B6B',
     borderWidth: 1,
     borderRadius: 5,
-    top: 21
   }
 }
 

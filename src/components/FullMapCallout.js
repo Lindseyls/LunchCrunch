@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Text, View, Image, TouchableOpacity, Linking } from 'react-native';
 
+import WaitTime from './common/WaitTime';
+import TotalTime from './common/TotalTime';
+
 class MapCallout extends Component {
 
   render() {
-    const { name, image, location } = this.props
+    const { name, image, location, popular_times } = this.props
 
     return (
       <TouchableOpacity onPress={() => Linking.openURL(`maps://app?daddr=${location[0]}+${location[1]}`)}>
@@ -17,6 +20,8 @@ class MapCallout extends Component {
         <Text style={styles.title}>
           { name }
         </Text>
+        <WaitTime times={popular_times} />
+        <TotalTime times={popular_times} />
       </View>
       </TouchableOpacity>
     );
@@ -27,7 +32,7 @@ const styles = {
   thumbnailStyle: {
     flex: 1,
     height: 70,
-    width: 70,
+    width: 100,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center'
