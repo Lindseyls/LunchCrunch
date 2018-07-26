@@ -33,15 +33,6 @@ class MapViewSection extends PureComponent {
                 Dimensions.get("window").height *
                 0.005
             }}
-            region={{
-              latitude: parseFloat(latitude),
-              longitude: parseFloat(longitude),
-              latitudeDelta: 0.0100,
-              longitudeDelta:
-                Dimensions.get("window").width /
-                Dimensions.get("window").height *
-                0.0100
-            }}
           >
             <MapView.Marker
               coordinate={{

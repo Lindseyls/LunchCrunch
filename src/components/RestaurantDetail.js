@@ -63,14 +63,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 5
   },
-<<<<<<< HEAD
-  fontSize: {
-    fontSize: 15,
-    fontWeight: 'bold'
-  },
-  phoneStyle: {
-    fontSize: 15
-=======
   textSize: {
     fontSize: 15,
     justifyContent: 'space-around',
@@ -78,7 +70,6 @@ const styles = StyleSheet.create({
   },
   phoneSize: {
     fontSize: 15,
->>>>>>> after-freeze-branch
   },
   yelpInfo: {
     justifyContent: 'space-around',
