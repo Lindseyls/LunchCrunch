@@ -45,6 +45,7 @@ const styles = {
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'center'
   }
 };
 

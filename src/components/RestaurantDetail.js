@@ -20,7 +20,7 @@ class SelectedRestaurantDetail extends Component {
         <View style={styles.contactStyle}>
           <Text style={styles.fontSize}>{ location[0] }</Text>
           <Text style={styles.fontSize}>{ location[1] }</Text>
-          <Text>{ display_phone }</Text>
+          <Text style={styles.phoneStyle}>{ display_phone }</Text>
         </View>
         <View style={styles.yelpInfo}>
           <Stars votes={rating} />
@@ -48,9 +48,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 200,
   },
-  textSize: {
-    fontSize: 35,
+  fontSize: {
+    fontSize: 15,
     fontWeight: 'bold'
+  },
+  phoneStyle: {
+    fontSize: 15
   },
   yelpInfo: {
     flexDirection: 'column',

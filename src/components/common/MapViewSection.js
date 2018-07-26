@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, Dimensions, TouchableWithoutFeedback } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView from 'react-native-maps';
 
 import MapCallout from './MapCallout';
 
@@ -25,7 +25,7 @@ class MapViewSection extends PureComponent {
                 0.0100
             }}
           >
-            <Marker
+            <MapView.Marker
               coordinate={{
                 latitude: parseFloat(latitude),
                 longitude: parseFloat(longitude)
@@ -39,7 +39,7 @@ class MapViewSection extends PureComponent {
                 popular_times={popular_times}
                 />
               </MapView.Callout>
-            </Marker>
+            </MapView.Marker>
           </MapView>
         </TouchableWithoutFeedback>
       </View>

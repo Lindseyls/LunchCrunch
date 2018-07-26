@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TouchableWithoutFeedback } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView from 'react-native-maps';
 
 import MapCallout from './common/MapCallout';
 
@@ -12,7 +12,7 @@ class MapRestList extends Component {
 
     return (
       <TouchableWithoutFeedback>
-        <Marker
+        <MapView.Marker
           coordinate={{
             latitude: parseFloat(latitude),
             longitude: parseFloat(longitude)
@@ -26,7 +26,7 @@ class MapRestList extends Component {
             popular_times={popular_times}
             />
           </MapView.Callout>
-        </Marker>
+        </MapView.Marker>
       </TouchableWithoutFeedback>
     );
   }
