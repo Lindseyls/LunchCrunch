@@ -12,21 +12,28 @@ class SelectedRestaurantDetail extends Component {
 
   render() {
     const restaurant = this.props.restaurantData
-    const { rating, review_count, yelp_url, location, display_phone, popular_times } = this.props.restaurantData;
+    const { rating, image_url, review_count, yelp_url, location, display_phone, popular_times } = this.props.restaurantData;
 
     return (
       <View style={styles.contentStyle}>
+
+        <View>
+          <Image
+            style={styles.imageStyle}
+            source={{ uri: image_url }}
+          />
+        </View>
         <View style={styles.mapStyle}>
           <MapViewSection restaurant={restaurant} />
         </View>
         <View style={styles.contactStyle}>
-          <Text style={styles.fontSize}>{ location[0] }</Text>
-          <Text style={styles.fontSize}>{ location[1] }</Text>
-          <Text>{ display_phone }</Text>
+          <Text style={styles.textSize}>{ location[0] }</Text>
+          <Text style={styles.textSize}>{ location[1] }</Text>
+          <Text style={styles.phoneSize}>{ display_phone }</Text>
         </View>
-        <View>
-          <WaitTime times={popular_times} />
-          <TotalTime times={popular_times} />
+        <View style={styles.waitTimeStyle}>
+          <WaitTime style={styles.waitTextStyle} times={popular_times} />
+          <TotalTime style={styles.waitTextStyle} times={popular_times} />
         </View>
         <View style={styles.yelpInfo}>
           <Stars votes={rating} />
@@ -48,8 +55,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FACDC2',
   },
+  imageStyle: {
+   height: 150,
+   width: "100%",
+   justifyContent: 'center',
+   alignItems: 'center',
+  },
   mapStyle: {
-    flex: 1,
+    // flex: 1,
     height: 200
   },
   contactStyle: {
@@ -59,15 +72,25 @@ const styles = StyleSheet.create({
     paddingTop: 200,
   },
   textSize: {
-    fontSize: 35,
+    fontSize: 18,
+    justifyContent: 'space-around',
     fontWeight: 'bold'
+  },
+  phoneSize: {
+    fontSize: 15,
+  },
+  waitTimeStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    paddingTop: 75,
+  },
+  waitTextStyle: {
+    fontSize: 15
   },
   yelpInfo: {
     flexDirection: 'column',
     justifyContent: 'space-around',
-    alignItems: 'center',
-    paddingTop: 50,
-    margin: 5
+    alignItems: 'flex-end',
   }
 });
 

@@ -48,7 +48,6 @@ MapCallout.propTypes = {
   name: PropTypes.string,
   image: PropTypes.string,
   location: PropTypes.array,
-  popular_times: PropTypes.array
 }
 
 export default MapCallout;

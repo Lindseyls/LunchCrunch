@@ -5,11 +5,10 @@ import MapView, { Marker } from 'react-native-maps';
 
 import MapCallout from './MapCallout';
 
-
 class MapViewSection extends PureComponent {
 
   render() {
-    const { latitude, longitude, popular_times, name, image_url, location } = this.props.restaurant;
+    const { latitude, longitude, name, image_url, location } = this.props.restaurant;
     console.log(`Rendering MapViewSection with restauant location: ${latitude}, ${longitude}`)
     return (
       <View style={styles.container}>
@@ -37,7 +36,6 @@ class MapViewSection extends PureComponent {
                 name={name}
                 image={image_url}
                 location={location}
-                popular_times={popular_times}
                 />
               </MapView.Callout>
             </Marker>
@@ -56,13 +54,13 @@ const styles = {
   },
   map: {
     position: 'absolute',
-    top: 20,
+    top: 0,
     left: 0,
     right: 0,
     bottom: 0,
+    height: 250,
     borderColor: '#414B6B',
     borderWidth: 1,
-    borderRadius: 5,
   }
 }
 
