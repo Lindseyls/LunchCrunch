@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
 import MapCallout from './MapCallout';
 
-class MapViewSection extends Component {
+class MapViewSection extends PureComponent {
 
   render() {
     const { latitude, longitude, popular_times, name, image_url, location } = this.props.restaurant;

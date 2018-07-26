@@ -32,9 +32,10 @@ const styles = {
   thumbnailStyle: {
     flex: 1,
     height: 70,
-    width: 70,
+    width: 100,
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'center'
   },
   title: {
     flex: 1,

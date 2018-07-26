@@ -18,7 +18,7 @@ class SelectedRestaurantDetail extends Component {
           <MapViewSection restaurant={restaurant} />
         </View>
         <View style={styles.contactStyle}>
-          <Text style={styles.fontSize}>{ location[0] },</Text>
+          <Text style={styles.fontSize}>{ location[0] }</Text>
           <Text style={styles.fontSize}>{ location[1] }</Text>
           <Text>{ display_phone }</Text>
         </View>
