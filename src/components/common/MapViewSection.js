@@ -64,11 +64,11 @@ const styles = {
   },
   map: {
     position: 'absolute',
-    top: 21,
-    left: 20,
-    right: 20,
+    top: 9,
+    left: 10,
+    right: 10,
     bottom: 0,
-    height: 300,
+    height: 200,
     borderColor: '#414B6B',
     borderWidth: 1,
   }
