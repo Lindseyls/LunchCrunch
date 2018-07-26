@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, Dimensions, TouchableWithoutFeedback } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView from 'react-native-maps';
 
 import MapCallout from './MapCallout';
 
 class MapViewSection extends PureComponent {
 
   render() {
-    const { latitude, longitude, name, image_url, location } = this.props.restaurant;
+    const { latitude, longitude, name, image_url, location, popular_times } = this.props.restaurant;
     console.log(`Rendering MapViewSection with restauant location: ${latitude}, ${longitude}`)
     return (
       <View style={styles.container}>
@@ -25,7 +25,7 @@ class MapViewSection extends PureComponent {
                 0.005
             }}
           >
-            <Marker
+            <MapView.Marker
               coordinate={{
                 latitude: parseFloat(latitude),
                 longitude: parseFloat(longitude)
@@ -36,9 +36,10 @@ class MapViewSection extends PureComponent {
                 name={name}
                 image={image_url}
                 location={location}
+                popular_times={popular_times}
                 />
               </MapView.Callout>
-            </Marker>
+            </MapView.Marker>
           </MapView>
         </TouchableWithoutFeedback>
       </View>
@@ -58,7 +59,7 @@ const styles = {
     left: 0,
     right: 0,
     bottom: 0,
-    height: 250,
+    height: 200,
     borderColor: '#414B6B',
     borderWidth: 1,
   }
