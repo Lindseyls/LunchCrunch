@@ -67,7 +67,7 @@ const styles = {
     top: 9,
     left: 10,
     right: 10,
-    bottom: 0,
+    bottom: 10,
     height: 200,
     borderColor: '#414B6B',
     borderWidth: 1,

@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FACDC2',
   },
   imageStyle: {
-   height: 150,
+   height: 175,
    width: "100%",
    justifyContent: 'center',
    alignItems: 'center',
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
   contactStyle: {
     justifyContent: 'space-around',
     alignItems: 'center',
-    margin: 5
+    margin: 5,
+    paddingTop: 5
   },
   textSize: {
     fontSize: 15,
@@ -74,8 +75,8 @@ const styles = StyleSheet.create({
   yelpInfo: {
     justifyContent: 'space-around',
     alignItems: 'center',
-    paddingTop: 30,
-    paddingBottom: 40
+    paddingTop: 15,
+    paddingBottom: 30
   }
 });
 
