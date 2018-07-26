@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TouchableWithoutFeedback } from 'react-native';
 import MapView from 'react-native-maps';
 
-import MapCallout from './common/MapCallout';
+import FullMapCallout from './FullMapCallout';
 
 class MapRestList extends Component {
 
@@ -19,7 +19,7 @@ class MapRestList extends Component {
           }}
         >
           <MapView.Callout>
-            <MapCallout
+            <FullMapCallout
             name={name}
             image={image_url}
             location={location}

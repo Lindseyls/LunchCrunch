@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import Button from 'react-native-button'
-import MapView, { Marker } from 'react-native-maps';
+import MapView from 'react-native-maps';
 import { fetchRestaurantAPI } from '../actions';
 import { connect } from 'react-redux';
 
@@ -78,11 +78,11 @@ class Map extends Component {
 
     if (this.state.locationChosen) {
       marker =
-      <Marker coordinate={this.state.focusedLocation}>
+      <MapView.Marker coordinate={this.state.focusedLocation}>
         <View style={styles.radius}>
           <View style={styles.marker}/>
         </View>
-      </Marker>;
+      </MapView.Marker>;
     }
 
     return (

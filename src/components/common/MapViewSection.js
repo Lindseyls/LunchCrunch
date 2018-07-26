@@ -8,7 +8,7 @@ import MapCallout from './MapCallout';
 class MapViewSection extends PureComponent {
 
   render() {
-    const { latitude, longitude, popular_times, name, image_url, location } = this.props.restaurant;
+    const { latitude, longitude, name, image_url, location, popular_times } = this.props.restaurant;
     console.log(`Rendering MapViewSection with restauant location: ${latitude}, ${longitude}`)
     return (
       <View style={styles.container}>
@@ -18,11 +18,20 @@ class MapViewSection extends PureComponent {
             initialRegion={{
               latitude: parseFloat(latitude),
               longitude: parseFloat(longitude),
-              latitudeDelta: 0.0100,
+              latitudeDelta: 0.005,
               longitudeDelta:
                 Dimensions.get("window").width /
                 Dimensions.get("window").height *
-                0.0100
+                0.005
+            }}
+            region={{
+              latitude: parseFloat(latitude),
+              longitude: parseFloat(longitude),
+              latitudeDelta: 0.005,
+              longitudeDelta:
+                Dimensions.get("window").width /
+                Dimensions.get("window").height *
+                0.005
             }}
             region={{
               latitude: parseFloat(latitude),
@@ -64,12 +73,13 @@ const styles = {
   },
   map: {
     position: 'absolute',
-    width: "90%",
-    height: 300,
+    top: 9,
+    left: 10,
+    right: 10,
+    bottom: 0,
+    height: 200,
     borderColor: '#414B6B',
     borderWidth: 1,
-    borderRadius: 5,
-    top: 21
   }
 }
 
