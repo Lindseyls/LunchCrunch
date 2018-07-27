@@ -9,6 +9,8 @@ import ReduxThunk from 'redux-thunk';
 // import Router from './src/Router';
 import reducers from './src/reducers';
 
+console.disableYellowBox = true;
+
 class RNRedux extends Component {
   render() {
     const store = createStore(reducers, {}, composeWithDevTools(
