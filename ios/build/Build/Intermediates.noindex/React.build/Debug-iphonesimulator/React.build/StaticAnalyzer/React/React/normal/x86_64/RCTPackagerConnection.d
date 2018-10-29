@@ -21,5 +21,5 @@ dependencies: \
   /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
   /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
   /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/DevSupport/RCTPackagerClient.h \
-  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/../Libraries/WebSocket/RCTReconnectingWebSocket.h \
-  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/React/../Libraries/WebSocket/RCTSRWebSocket.h
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/Libraries/WebSocket/RCTReconnectingWebSocket.h \
+  /Users/luxilindsey/Documents/Ada/Capstone/lunch-crunch/node_modules/react-native/Libraries/WebSocket/RCTSRWebSocket.h
