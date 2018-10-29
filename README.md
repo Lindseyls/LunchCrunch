@@ -9,13 +9,13 @@ Lunch Crunch was created as my Capstone Project at Ada Developers Academy. It is
 Please visit the back-end repository for the application [here](https://github.com/Lindseyls/LunchCrunchAPI ). The back-end is deployed to Heroku to serve data by managing relevant content in a PostgreSQL database and handling Yelp API calls.
 
 ## Tech Stack
-Reach Native
-Redux
-Xcode
-Ruby on Rails
-PostgreSQL
-Yelp API
-Apple Maps
+* Reach Native
+* Redux
+* Xcode
+* Ruby on Rails
+* PostgreSQL
+* Yelp API
+* Apple Maps
 
 ## Target Users
 
@@ -51,7 +51,7 @@ To run the app locally, the prerequisite development environment needs to be ins
 
 Clone this repository and use the following commands in the terminal:
 
-### `react-native start`
+#### `react-native start`
 
 Runs your app in development mode. You should keep this terminal window running while developing your app.
 
